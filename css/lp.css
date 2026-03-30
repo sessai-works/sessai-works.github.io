@@ -468,16 +468,29 @@
   margin-bottom: 16px;
 }
 
-.lp-footer-nav a {
-  display: block;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
-  padding: 6px 0;
-  transition: color 0.2s;
+.lp-footer-nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.lp-footer-nav a:hover {
+.lp-footer-nav-buttons a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.lp-footer-nav-buttons a:hover {
   color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .lp-footer-contact p {

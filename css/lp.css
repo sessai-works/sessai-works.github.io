@@ -1,0 +1,460 @@
+/* ============================================================
+   SessAI Works — Landing Page Sections
+   Visual rhythm: light → light → light → DARK → ACCENT
+   ============================================================ */
+
+/* --- Shared LP Section --- */
+.lp-section {
+  padding: 100px 24px;
+  position: relative;
+}
+
+.lp-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.lp-section-label {
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.lp-section-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+.lp-section-title .accent {
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   1. PAIN POINTS — 課題提起
+   White bg, bold typography, red-ish accents
+   ============================================================ */
+.lp-pain {
+  background: var(--color-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.lp-pain-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.lp-pain-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 3px solid #e74c3c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lp-pain-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.lp-pain-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #e74c3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.lp-pain-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.lp-pain-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* ============================================================
+   2. SOLUTION — 解決策
+   Subtle gradient bg, icon cards
+   ============================================================ */
+.lp-solution {
+  background: linear-gradient(180deg, #f0f4ff 0%, var(--color-bg) 100%);
+}
+
+.lp-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.lp-solution-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.lp-solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(74, 108, 247, 0.1);
+}
+
+.lp-solution-card:hover::before {
+  transform: scaleX(1);
+}
+
+.lp-solution-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+}
+
+.lp-solution-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.lp-solution-card p {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   3. RESULTS — Before/After 実績
+   White bg, big numbers, dramatic contrast
+   ============================================================ */
+.lp-results {
+  background: var(--color-bg);
+}
+
+.lp-results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lp-result-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lp-result-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+.lp-result-number {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 120px;
+}
+
+.lp-result-number .big {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.lp-result-number .unit {
+  font-size: 0.4em;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.lp-result-number .label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-text-tertiary);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+.lp-result-body {
+  flex: 1;
+}
+
+.lp-result-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.lp-result-ba {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 6px 0;
+}
+
+.lp-result-ba + .lp-result-ba {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.lp-result-ba-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lp-result-ba-tag.before { background: #fee2e2; color: #991b1b; }
+.lp-result-ba-tag.after { background: #dcfce7; color: #166534; }
+
+.lp-result-ba-text {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   4. PROCESS — 導入の流れ
+   DARK background for contrast break
+   ============================================================ */
+.lp-process {
+  background: #0f172a;
+  color: #fff;
+}
+
+.lp-process .lp-section-label {
+  color: rgba(74, 108, 247, 0.8);
+}
+
+.lp-process .lp-section-title {
+  color: #fff;
+}
+
+.lp-process .lp-section-title .accent {
+  color: #818cf8;
+}
+
+.lp-process-steps {
+  display: flex;
+  gap: 0;
+  position: relative;
+}
+
+.lp-process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 80px;
+  right: 80px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lp-process-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.lp-step-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(74, 108, 247, 0.15);
+  border: 2px solid rgba(74, 108, 247, 0.3);
+  color: #818cf8;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lp-process-step:hover .lp-step-number {
+  background: rgba(74, 108, 247, 0.3);
+  border-color: rgba(74, 108, 247, 0.6);
+}
+
+.lp-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.lp-step-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   5. CTA — お問い合わせ
+   Accent gradient, strong visual weight
+   ============================================================ */
+.lp-cta {
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 50%, #818cf8 100%);
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.lp-cta-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.lp-cta-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+.lp-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lp-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.lp-cta-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* --- LP Footer --- */
+.lp-footer {
+  background: #0a0e1a;
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.lp-footer p {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1023px) {
+  .lp-solution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .lp-section {
+    padding: 72px 20px;
+  }
+
+  .lp-pain-list {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-result-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .lp-process-steps {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .lp-process-steps::before {
+    display: none;
+  }
+
+  .lp-cta {
+    padding: 64px 20px;
+  }
+}

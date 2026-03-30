@@ -27,6 +27,12 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+body.page-lp {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+}
 a { color: inherit; text-decoration: none; }
 
 /* --- Canvas Background --- */

@@ -57,17 +57,22 @@
     function createParticles() {
       particles = [];
       // Calculate a clean grid with even spacing and margins
-      var margin = isMobile ? 40 : 60;
+      var margin = isMobile ? 30 : 60;
       var areaW = w - margin * 2;
       var areaH = h - margin * 2;
-      var cols = Math.round(Math.sqrt(PARTICLE_COUNT * (areaW / areaH)));
+      var aspect = areaW / areaH;
+      var cols = Math.round(Math.sqrt(PARTICLE_COUNT * aspect));
       var rows = Math.ceil(PARTICLE_COUNT / cols);
-      // Recalculate to avoid leftover particles on last row
-      while (cols * rows < PARTICLE_COUNT) rows++;
-      var cellW = areaW / (cols - 1 || 1);
-      var cellH = areaH / (rows - 1 || 1);
+      // Ensure grid is fully filled — adjust count down to cols * rows if needed
+      var actualCount = cols * rows;
+      if (actualCount > PARTICLE_COUNT + cols) {
+        rows = Math.ceil(PARTICLE_COUNT / cols);
+        actualCount = cols * rows;
+      }
+      var cellW = cols > 1 ? areaW / (cols - 1) : 0;
+      var cellH = rows > 1 ? areaH / (rows - 1) : 0;
 
-      for (var i = 0; i < PARTICLE_COUNT; i++) {
+      for (var i = 0; i < actualCount; i++) {
         var gridCol = i % cols;
         var gridRow = Math.floor(i / cols);
 
@@ -233,11 +238,12 @@
             if (avgOrg > 0.3) {
               // Organized: grid neighbors get strong lines, others fade
               var neighborBoost = isGridNeighbor ? 1 : 0.5;
-              ctx.strokeStyle = 'hsla(225, 80%, 45%, ' + (lineAlpha * avgOrg * 1.5 * neighborBoost) + ')';
-              ctx.lineWidth = isGridNeighbor ? (1.5 + avgOrg * 1.2) : 0.8;
+              var lineStrength = isMobile ? 0.7 : 1.5;
+              ctx.strokeStyle = 'hsla(225, 80%, 45%, ' + (lineAlpha * avgOrg * lineStrength * neighborBoost) + ')';
+              ctx.lineWidth = isGridNeighbor ? (isMobile ? 1 : 1.5) + avgOrg * (isMobile ? 0.5 : 1.2) : (isMobile ? 0.4 : 0.8);
             } else {
-              ctx.strokeStyle = 'rgba(130, 140, 170, ' + (lineAlpha * 0.25) + ')';
-              ctx.lineWidth = 0.8;
+              ctx.strokeStyle = 'rgba(130, 140, 170, ' + (lineAlpha * (isMobile ? 0.08 : 0.25)) + ')';
+              ctx.lineWidth = isMobile ? 0.4 : 0.8;
             }
 
             ctx.beginPath();

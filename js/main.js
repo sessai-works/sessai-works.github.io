@@ -67,9 +67,19 @@
       var scale = isMobile ? 0.4 : 0.5;
       var gridW = areaW * scale;
       var gridH = areaH * scale;
-      // Center the grid on screen
       var offsetX = (w - gridW) / 2;
       var offsetY = (h - gridH) / 2;
+
+      // Mobile: center grid vertically between Skills and About nav links
+      if (isMobile) {
+        var navLinks = document.querySelectorAll('.home-nav a');
+        if (navLinks.length >= 3) {
+          var skillsRect = navLinks[1].getBoundingClientRect(); // Skills
+          var aboutRect = navLinks[2].getBoundingClientRect();  // About
+          var centerY = (skillsRect.bottom + aboutRect.top) / 2;
+          offsetY = centerY - gridH / 2;
+        }
+      }
 
       var bestCols = 5, bestRows = 6, bestDiff = Infinity;
       for (var c = 2; c <= PARTICLE_COUNT; c++) {

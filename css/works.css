@@ -173,6 +173,12 @@
   justify-content: center;
 }
 
+@media (max-width: 767px) {
+  .works-filter-inner {
+    justify-content: flex-start;
+  }
+}
+
 .filter-btn {
   font-family: var(--font-sans);
   font-size: 0.8rem;

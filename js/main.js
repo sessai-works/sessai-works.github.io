@@ -56,33 +56,41 @@
 
     function createParticles() {
       particles = [];
-      var cols = Math.ceil(Math.sqrt(PARTICLE_COUNT * (w / h)));
+      // Calculate a clean grid with even spacing and margins
+      var margin = isMobile ? 40 : 60;
+      var areaW = w - margin * 2;
+      var areaH = h - margin * 2;
+      var cols = Math.round(Math.sqrt(PARTICLE_COUNT * (areaW / areaH)));
       var rows = Math.ceil(PARTICLE_COUNT / cols);
-      var cellW = w / (cols + 1);
-      var cellH = h / (rows + 1);
+      // Recalculate to avoid leftover particles on last row
+      while (cols * rows < PARTICLE_COUNT) rows++;
+      var cellW = areaW / (cols - 1 || 1);
+      var cellH = areaH / (rows - 1 || 1);
 
       for (var i = 0; i < PARTICLE_COUNT; i++) {
-        var gridCol = (i % cols) + 1;
-        var gridRow = Math.floor(i / cols) + 1;
+        var gridCol = i % cols;
+        var gridRow = Math.floor(i / cols);
 
         particles.push({
-          // Current position (starts scattered)
           x: Math.random() * w,
           y: Math.random() * h,
-          // Chaotic movement
           vx: (Math.random() - 0.5) * 0.6,
           vy: (Math.random() - 0.5) * 0.6,
           driftX: (Math.random() - 0.5) * 0.3,
           driftY: (Math.random() - 0.5) * 0.3,
-          // Grid target (organized position)
-          gridX: gridCol * cellW,
-          gridY: gridRow * cellH,
-          // Appearance
+          gridX: margin + gridCol * cellW,
+          gridY: margin + gridRow * cellH,
+          gridCol: gridCol,
+          gridRow: gridRow,
           radius: 2.5 + Math.random() * 2,
+          baseRadius: isMobile ? 3 : 3.5,
           hue: 220 + Math.random() * 30,
           phase: Math.random() * Math.PI * 2
         });
       }
+      // Store grid info for neighbor detection
+      particles._cols = cols;
+      particles._rows = rows;
     }
 
     // Easing: smooth step for transitions
@@ -165,19 +173,32 @@
         var displayX = p.x + (p.gridX - p.x) * localOrg;
         var displayY = p.y + (p.gridY - p.y) * localOrg;
 
-        // Draw particle
-        var alpha = 0.25 + localOrg * 0.35;
-        var size = p.radius * (1 + localOrg * 0.3);
+        // Draw particle — unified appearance when organized
+        var chaoticAlpha = 0.2;
+        var organizedAlpha = 0.7;
+        var alpha = chaoticAlpha + localOrg * (organizedAlpha - chaoticAlpha);
+
+        // Size: random when chaotic, uniform when organized
+        var chaoticSize = p.radius;
+        var organizedSize = p.baseRadius;
+        var size = chaoticSize + (organizedSize - chaoticSize) * localOrg;
+
+        // Color: varied hue when chaotic, unified blue when organized
+        var hue = p.hue + (225 - p.hue) * localOrg;
+        var sat = 70 + localOrg * 15;
+        var light = 65 - localOrg * 10;
+
         ctx.beginPath();
         ctx.arc(displayX, displayY, size, 0, Math.PI * 2);
-        ctx.fillStyle = 'hsla(' + p.hue + ', 70%, 65%, ' + alpha + ')';
+        ctx.fillStyle = 'hsla(' + hue + ', ' + sat + '%, ' + light + '%, ' + alpha + ')';
         ctx.fill();
 
-        // Organized glow
-        if (localOrg > 0.5) {
+        // Organized glow — stronger and crisper
+        if (localOrg > 0.4) {
+          var glowAlpha = (localOrg - 0.4) * 0.25;
           ctx.beginPath();
-          ctx.arc(displayX, displayY, size + 3, 0, Math.PI * 2);
-          ctx.fillStyle = 'hsla(' + p.hue + ', 80%, 70%, ' + ((localOrg - 0.5) * 0.15) + ')';
+          ctx.arc(displayX, displayY, size + 4, 0, Math.PI * 2);
+          ctx.fillStyle = 'hsla(225, 85%, 70%, ' + glowAlpha + ')';
           ctx.fill();
         }
 
@@ -188,6 +209,7 @@
       }
 
       // --- Draw connections ---
+      var gridCols = particles._cols || 1;
       for (var i = 0; i < particles.length; i++) {
         for (var j = i + 1; j < particles.length; j++) {
           var a = particles[i];
@@ -195,18 +217,26 @@
           var dx = a.displayX - b.displayX;
           var dy = a.displayY - b.displayY;
           var dist = Math.sqrt(dx * dx + dy * dy);
-          var maxDist = CONNECT_DIST + (a.localOrg + b.localOrg) * 40;
+          var avgOrg = (a.localOrg + b.localOrg) / 2;
+
+          // Check if grid neighbors (adjacent horizontally or vertically)
+          var isGridNeighbor = (
+            (Math.abs(a.gridCol - b.gridCol) <= 1 && a.gridRow === b.gridRow) ||
+            (Math.abs(a.gridRow - b.gridRow) <= 1 && a.gridCol === b.gridCol)
+          );
+
+          var maxDist = CONNECT_DIST + (avgOrg) * 50;
 
           if (dist < maxDist) {
             var lineAlpha = (1 - dist / maxDist);
-            var avgOrg = (a.localOrg + b.localOrg) / 2;
 
-            // Organized: blue lines. Chaotic: faint gray lines
             if (avgOrg > 0.3) {
-              ctx.strokeStyle = 'hsla(225, 70%, 65%, ' + (lineAlpha * avgOrg * 0.3) + ')';
-              ctx.lineWidth = 1 + avgOrg * 0.5;
+              // Organized: grid neighbors get strong lines, others fade
+              var neighborBoost = isGridNeighbor ? 1 : 0.3;
+              ctx.strokeStyle = 'hsla(225, 75%, 60%, ' + (lineAlpha * avgOrg * 0.45 * neighborBoost) + ')';
+              ctx.lineWidth = isGridNeighbor ? (1 + avgOrg * 0.8) : 0.5;
             } else {
-              ctx.strokeStyle = 'rgba(160, 170, 190, ' + (lineAlpha * 0.06) + ')';
+              ctx.strokeStyle = 'rgba(160, 170, 190, ' + (lineAlpha * 0.05) + ')';
               ctx.lineWidth = 0.5;
             }
 

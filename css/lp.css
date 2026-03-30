@@ -368,24 +368,24 @@
    Accent gradient, strong visual weight
    ============================================================ */
 .lp-cta {
-  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 50%, #818cf8 100%);
+  background: var(--color-bg);
   text-align: center;
   padding: 80px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
-
 
 .lp-cta-title {
   font-family: var(--font-body);
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text);
   margin-bottom: 16px;
   line-height: 1.6;
 }
 
 .lp-cta-desc {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-secondary);
   margin-bottom: 32px;
   line-height: 1.8;
 }
@@ -394,8 +394,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 700;
@@ -404,12 +404,12 @@
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(74, 108, 247, 0.3);
 }
 
 .lp-cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px rgba(74, 108, 247, 0.4);
 }
 
 .lp-cta-button svg {

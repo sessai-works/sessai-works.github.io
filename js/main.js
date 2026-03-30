@@ -56,23 +56,32 @@
 
     function createParticles() {
       particles = [];
-      // Calculate a clean grid with even spacing and margins
       var margin = isMobile ? 30 : 60;
       var areaW = w - margin * 2;
       var areaH = h - margin * 2;
-      var aspect = areaW / areaH;
-      var cols = Math.round(Math.sqrt(PARTICLE_COUNT * aspect));
-      var rows = Math.ceil(PARTICLE_COUNT / cols);
-      // Ensure grid is fully filled — adjust count down to cols * rows if needed
-      var actualCount = cols * rows;
-      if (actualCount > PARTICLE_COUNT + cols) {
-        rows = Math.ceil(PARTICLE_COUNT / cols);
-        actualCount = cols * rows;
+
+      // Find cols x rows that exactly equals PARTICLE_COUNT (or closest)
+      // Try different col counts and pick the one with best aspect match
+      var bestCols = 5, bestRows = 6, bestDiff = Infinity;
+      for (var c = 2; c <= PARTICLE_COUNT; c++) {
+        if (PARTICLE_COUNT % c !== 0) continue;
+        var r = PARTICLE_COUNT / c;
+        var gridAspect = (c / r);
+        var screenAspect = (areaW / areaH);
+        var diff = Math.abs(gridAspect - screenAspect);
+        if (diff < bestDiff) {
+          bestDiff = diff;
+          bestCols = c;
+          bestRows = r;
+        }
       }
+
+      var cols = bestCols;
+      var rows = bestRows;
       var cellW = cols > 1 ? areaW / (cols - 1) : 0;
       var cellH = rows > 1 ? areaH / (rows - 1) : 0;
 
-      for (var i = 0; i < actualCount; i++) {
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
         var gridCol = i % cols;
         var gridRow = Math.floor(i / cols);
 
@@ -93,7 +102,6 @@
           phase: Math.random() * Math.PI * 2
         });
       }
-      // Store grid info for neighbor detection
       particles._cols = cols;
       particles._rows = rows;
     }

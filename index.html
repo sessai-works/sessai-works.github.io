@@ -9,20 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/lp.css">
 <link rel="stylesheet" href="css/animations.css">
 </head>
-<body>
+<body class="page-lp">
 
+<!-- ===== FIRST VIEW (既存) ===== -->
 <canvas id="bg-canvas"></canvas>
 
 <div class="home-overlay">
-  <!-- Identity -->
   <div class="home-identity wipe-group">
     <h1 class="brand-name wipe-reveal">SessAI Works</h1>
     <p class="brand-tagline wipe-reveal">Automate your operations with AI</p>
   </div>
 
-  <!-- Navigation -->
   <nav class="home-nav reveal-up">
     <a href="works.html">Works</a>
     <a href="skills.html">Skills</a>
@@ -30,7 +30,6 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Bottom: Headline + Numbers -->
   <div class="home-bottom">
     <div class="home-headline">
       <p class="headline-ja wipe-reveal">AIで、業務をもっとシンプルに。</p>
@@ -52,6 +51,173 @@
     </div>
   </div>
 </div>
+
+<!-- ===== 1. PAIN POINTS — 課題提起 ===== -->
+<section class="lp-section lp-pain">
+  <div class="lp-inner">
+    <p class="lp-section-label wipe-reveal">Problem</p>
+    <h2 class="lp-section-title wipe-reveal">こんな業務に、<span class="accent">時間を取られていませんか？</span></h2>
+    <div class="lp-pain-list stagger-children">
+      <div class="lp-pain-item">
+        <div class="lp-pain-icon">⏱</div>
+        <div>
+          <div class="lp-pain-text">毎月同じレポートを手作業で作成している</div>
+          <div class="lp-pain-sub">データ集計、グラフ作成、報告書…毎回同じ作業の繰り返し</div>
+        </div>
+      </div>
+      <div class="lp-pain-item">
+        <div class="lp-pain-icon">📩</div>
+        <div>
+          <div class="lp-pain-text">チャットやメールの対応が追いつかない</div>
+          <div class="lp-pain-sub">複数ツールを行き来して、見逃しや対応遅れが発生</div>
+        </div>
+      </div>
+      <div class="lp-pain-item">
+        <div class="lp-pain-icon">📄</div>
+        <div>
+          <div class="lp-pain-text">マニュアルや議事録を作るのに何時間もかかる</div>
+          <div class="lp-pain-sub">内容を整理して、体裁を整えて…本業以外の時間が膨らむ</div>
+        </div>
+      </div>
+      <div class="lp-pain-item">
+        <div class="lp-pain-icon">🔍</div>
+        <div>
+          <div class="lp-pain-text">社内ルールやナレッジを探すのに時間がかかる</div>
+          <div class="lp-pain-sub">「あのファイルどこだっけ？」「誰に聞けばいいの？」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. SOLUTION — 解決策 ===== -->
+<section class="lp-section lp-solution">
+  <div class="lp-inner">
+    <p class="lp-section-label wipe-reveal">Solution</p>
+    <h2 class="lp-section-title wipe-reveal">SessAI Worksが<span class="accent">仕組みで解決</span>します</h2>
+    <div class="lp-solution-grid stagger-children">
+      <div class="lp-solution-card">
+        <div class="lp-solution-icon">🤖</div>
+        <h3>AIで自動生成</h3>
+        <p>レポート、マニュアル、議事録など、定型ドキュメントをAIが自動で生成。人が書く時間を大幅に削減します。</p>
+      </div>
+      <div class="lp-solution-card">
+        <div class="lp-solution-icon">🔗</div>
+        <h3>ツール間を自動連携</h3>
+        <p>チャット通知、メール送信、ファイル保存。バラバラのツールをつなげて、手作業のリレーをなくします。</p>
+      </div>
+      <div class="lp-solution-card">
+        <div class="lp-solution-icon">💬</div>
+        <h3>AIが即座に回答</h3>
+        <p>社内ルールや業務ナレッジをAIチャットボットに集約。聞くだけで必要な情報が即座に見つかります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. RESULTS — Before/After 実績 ===== -->
+<section class="lp-section lp-results">
+  <div class="lp-inner">
+    <p class="lp-section-label wipe-reveal">Results</p>
+    <h2 class="lp-section-title wipe-reveal">導入による<span class="accent">具体的な変化</span></h2>
+    <div class="lp-results-grid" id="lp-results-grid">
+      <!-- data.jsから動的に生成、フォールバックは下記 -->
+      <div class="lp-result-item reveal-up">
+        <div class="lp-result-number">
+          <div class="big">96<span class="unit">%</span></div>
+          <div class="label">工数削減</div>
+        </div>
+        <div class="lp-result-body">
+          <h3>業務マニュアル自動作成</h3>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag before">Before</span>
+            <span class="lp-result-ba-text">手作業でマニュアルを作成（1件あたり2〜3時間）</span>
+          </div>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag after">After</span>
+            <span class="lp-result-ba-text">ファイルをアップロードするだけで自動生成（約5分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-result-item reveal-up">
+        <div class="lp-result-number">
+          <div class="big">0<span class="unit">件</span></div>
+          <div class="label">対応漏れ</div>
+        </div>
+        <div class="lp-result-body">
+          <h3>チャット通知自動化</h3>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag before">Before</span>
+            <span class="lp-result-ba-text">チャットツールを定期的に確認 → 見逃し・対応遅延のリスク</span>
+          </div>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag after">After</span>
+            <span class="lp-result-ba-text">Teamsに自動通知 + 未対応時は自動返信でクライアント安心</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-result-item reveal-up">
+        <div class="lp-result-number">
+          <div class="big">2<span class="unit">分</span></div>
+          <div class="label">レポート完成</div>
+        </div>
+        <div class="lp-result-body">
+          <h3>商談分析レポート自動作成</h3>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag before">Before</span>
+            <span class="lp-result-ba-text">議事録を個別に確認。傾向分析・パターン把握は手作業</span>
+          </div>
+          <div class="lp-result-ba">
+            <span class="lp-result-ba-tag after">After</span>
+            <span class="lp-result-ba-text">AIが自動で分析 → 月次レポート生成 → 保存 → 通知まで全自動</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. PROCESS — 導入の流れ（ダーク背景） ===== -->
+<section class="lp-section lp-process">
+  <div class="lp-inner">
+    <p class="lp-section-label wipe-reveal">Process</p>
+    <h2 class="lp-section-title wipe-reveal"><span class="accent">3ステップ</span>で導入できます</h2>
+    <div class="lp-process-steps stagger-children">
+      <div class="lp-process-step">
+        <div class="lp-step-number">1</div>
+        <div class="lp-step-title">ご相談</div>
+        <div class="lp-step-desc">「この作業、もっと楽にならない？」で大丈夫です。まずはお話を聞かせてください。</div>
+      </div>
+      <div class="lp-process-step">
+        <div class="lp-step-number">2</div>
+        <div class="lp-step-title">設計・構築</div>
+        <div class="lp-step-desc">最適なツールを選定し、小さく作って素早くテスト。動くものをお見せしながら進めます。</div>
+      </div>
+      <div class="lp-process-step">
+        <div class="lp-step-number">3</div>
+        <div class="lp-step-title">運用開始</div>
+        <div class="lp-step-desc">導入後もフィードバックを反映しながら改善。業務に定着するまで伴走します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. CTA — お問い合わせ ===== -->
+<section class="lp-cta">
+  <div class="lp-inner">
+    <h2 class="lp-cta-title wipe-reveal">まずは気軽にご相談ください</h2>
+    <p class="lp-cta-desc reveal-up">「こういう業務を自動化できる？」といった段階でも構いません。<br>お話を伺いながら、最適な方法を一緒に考えます。</p>
+    <a href="https://forms.gle/avxAvwP63AWKmj4L9" target="_blank" rel="noopener noreferrer" class="lp-cta-button reveal-up">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z"/></svg>
+      お問い合わせフォームへ
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="lp-footer">
+  <p>&copy; 2026 SessAI Works. All rights reserved.</p>
+</footer>
 
 <script src="js/main.js"></script>
 <script src="js/animations.js"></script>

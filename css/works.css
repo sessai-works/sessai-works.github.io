@@ -227,7 +227,7 @@
   border-radius: 14px;
   padding: 28px 24px;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -239,27 +239,40 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  width: 0;
   height: 3px;
   border-radius: 14px 14px 0 0;
+  transition: width 0.4s ease;
+  background: var(--color-accent);
+}
+
+.work-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(74, 108, 247, 0.03) 0%, rgba(74, 108, 247, 0) 60%);
   opacity: 0;
-  transition: opacity 0.25s;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 14px;
 }
 
 .work-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(74, 108, 247, 0.12);
+  border-color: rgba(74, 108, 247, 0.2);
 }
 
 .work-card:hover::before {
-  opacity: 1;
+  width: 100%;
 }
 
-.work-card[data-status="live"]::before { background: #22c55e; }
-.work-card[data-status="testing"]::before { background: #f97316; }
-.work-card[data-status="building"]::before { background: #eab308; }
-.work-card[data-status="designed"]::before { background: #6366f1; }
-.work-card[data-status="planned"]::before { background: #94a3b8; }
+.work-card:hover::after {
+  opacity: 1;
+}
 
 .work-card-header {
   display: flex;
@@ -275,6 +288,11 @@
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.work-card:hover .work-card-name {
+  color: var(--color-accent);
 }
 
 .work-card-badge {
@@ -316,6 +334,11 @@
   background: var(--color-accent-light);
   padding: 3px 10px;
   border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.work-card:hover .work-card-tool {
+  background: rgba(74, 108, 247, 0.15);
 }
 
 .work-card-footer {
@@ -331,6 +354,11 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .work-card-saved {
+  transform: scale(1.05);
 }
 
 .work-card-arrow {

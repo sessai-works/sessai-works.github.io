@@ -166,6 +166,23 @@
   font-weight: 600;
 }
 
+/* --- Name Origin --- */
+.about-name-origin {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  padding: 32px;
+  border-left: 3px solid var(--color-accent);
+}
+
+.about-name-origin .about-intro {
+  margin-bottom: 12px;
+}
+
+.about-name-origin .about-intro:last-child {
+  margin-bottom: 0;
+}
+
 /* --- CTA --- */
 .about-cta {
   text-align: center;

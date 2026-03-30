@@ -70,13 +70,14 @@
       var offsetX = (w - gridW) / 2;
       var offsetY = (h - gridH) / 2;
 
-      // Mobile: center grid vertically between Skills and About nav links
+      // Mobile: center grid between tagline and headline-ja
       if (isMobile) {
-        var navLinks = document.querySelectorAll('.home-nav a');
-        if (navLinks.length >= 3) {
-          var skillsRect = navLinks[1].getBoundingClientRect(); // Skills
-          var aboutRect = navLinks[2].getBoundingClientRect();  // About
-          var centerY = (skillsRect.bottom + aboutRect.top) / 2;
+        var tagline = document.querySelector('.brand-tagline');
+        var headlineJa = document.querySelector('.headline-ja');
+        if (tagline && headlineJa) {
+          var topEdge = tagline.getBoundingClientRect().bottom;
+          var bottomEdge = headlineJa.getBoundingClientRect().top;
+          var centerY = (topEdge + bottomEdge) / 2;
           offsetY = centerY - gridH / 2;
         }
       }

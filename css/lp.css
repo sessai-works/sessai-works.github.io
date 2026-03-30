@@ -373,14 +373,6 @@
   padding: 80px 24px;
 }
 
-/* Ensure wipe-reveal inside CTA doesn't clip the gradient bg */
-.lp-cta .wipe-reveal {
-  background: transparent;
-}
-
-.lp-cta .wipe-reveal > .wipe-inner {
-  background: transparent;
-}
 
 .lp-cta-title {
   font-family: var(--font-body);

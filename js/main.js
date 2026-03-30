@@ -232,12 +232,12 @@
 
             if (avgOrg > 0.3) {
               // Organized: grid neighbors get strong lines, others fade
-              var neighborBoost = isGridNeighbor ? 1 : 0.4;
-              ctx.strokeStyle = 'hsla(225, 75%, 55%, ' + (lineAlpha * avgOrg * 0.7 * neighborBoost) + ')';
-              ctx.lineWidth = isGridNeighbor ? (1.2 + avgOrg * 1) : 0.6;
+              var neighborBoost = isGridNeighbor ? 1 : 0.5;
+              ctx.strokeStyle = 'hsla(225, 80%, 45%, ' + (lineAlpha * avgOrg * 1.5 * neighborBoost) + ')';
+              ctx.lineWidth = isGridNeighbor ? (1.5 + avgOrg * 1.2) : 0.8;
             } else {
-              ctx.strokeStyle = 'rgba(160, 170, 190, ' + (lineAlpha * 0.1) + ')';
-              ctx.lineWidth = 0.6;
+              ctx.strokeStyle = 'rgba(130, 140, 170, ' + (lineAlpha * 0.25) + ')';
+              ctx.lineWidth = 0.8;
             }
 
             ctx.beginPath();

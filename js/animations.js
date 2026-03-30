@@ -1,48 +1,40 @@
 // ============================================================
 // SessAI Works — Text Reveal Animation Engine
-// Character-by-character + IntersectionObserver triggers
+// Mercari-style horizontal wipe + IntersectionObserver
 // ============================================================
 
 (function () {
   'use strict';
 
   // ============================================================
-  // 1. Split text into individual characters
+  // 1. Wrap text content in span.wipe-inner for wipe-reveal
   // ============================================================
-  function initCharReveal() {
-    var elements = document.querySelectorAll('.char-reveal');
+  function initWipeReveal() {
+    var elements = document.querySelectorAll('.wipe-reveal');
 
     for (var i = 0; i < elements.length; i++) {
       var el = elements[i];
-      var text = el.textContent;
-      var html = '';
-      var charIndex = 0;
+      // Skip if already wrapped
+      if (el.querySelector('.wipe-inner')) continue;
 
-      for (var j = 0; j < text.length; j++) {
-        var ch = text[j];
-        if (ch === ' ' || ch === '\u3000') {
-          html += ch;
-        } else if (ch === '\n') {
-          html += '<br>';
-        } else {
-          var delay = charIndex * 0.04;
-          html += '<span style="--char-delay:' + delay.toFixed(2) + 's">' + ch + '</span>';
-          charIndex++;
-        }
+      var inner = document.createElement('span');
+      inner.className = 'wipe-inner';
+
+      // Move all children into the inner span
+      while (el.firstChild) {
+        inner.appendChild(el.firstChild);
       }
-
-      el.innerHTML = html;
+      el.appendChild(inner);
     }
   }
 
   // ============================================================
-  // 2. IntersectionObserver — trigger animations on scroll
+  // 2. IntersectionObserver — trigger on scroll into view
   // ============================================================
   function initObserver() {
-    var targets = document.querySelectorAll('.char-reveal, .reveal, .reveal-up, .stagger-children');
+    var targets = document.querySelectorAll('.wipe-reveal, .reveal-up, .stagger-children');
 
     if (!('IntersectionObserver' in window)) {
-      // Fallback: show everything immediately
       for (var i = 0; i < targets.length; i++) {
         targets[i].classList.add('visible');
       }
@@ -57,8 +49,8 @@
         }
       }
     }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     for (var i = 0; i < targets.length; i++) {
@@ -67,23 +59,21 @@
   }
 
   // ============================================================
-  // 3. Home page: trigger animations immediately with delays
+  // 3. Home page: trigger with staggered delays (no scroll)
   // ============================================================
   function initHomeAnimations() {
-    var isHome = document.body.classList.contains('page-home') ||
-                 document.querySelector('.home-overlay');
+    var isHome = !!document.querySelector('.home-overlay');
     if (!isHome) return;
 
-    // Home page elements are visible immediately (no scroll)
-    var targets = document.querySelectorAll('.char-reveal, .reveal, .reveal-up');
-    var baseDelay = 300;
+    var targets = document.querySelectorAll('.wipe-reveal, .reveal-up');
+    var baseDelay = 400;
 
     for (var i = 0; i < targets.length; i++) {
       (function (el, delay) {
         setTimeout(function () {
           el.classList.add('visible');
         }, delay);
-      })(targets[i], baseDelay + i * 200);
+      })(targets[i], baseDelay + i * 250);
     }
   }
 
@@ -91,7 +81,7 @@
   // 4. Initialize
   // ============================================================
   document.addEventListener('DOMContentLoaded', function () {
-    initCharReveal();
+    initWipeReveal();
     initHomeAnimations();
     initObserver();
   });

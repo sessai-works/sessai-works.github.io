@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SessAI Works — Automate your operations with AI</title>
-<meta name="description" content="SessAI Works - AIやノーコードツールを活用した業務自動化サービス。菅田琢磨（AIインテグレーター）">
+<meta name="description" content="SessAI Works - AIやノーコードツールを活用した業務自動化。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 
@@ -17,12 +18,12 @@
 <div class="home-overlay">
   <!-- Identity -->
   <div class="home-identity">
-    <h1 class="brand-name">SessAI Works</h1>
-    <p class="brand-tagline">Automate your operations with AI</p>
+    <h1 class="brand-name char-reveal">SessAI Works</h1>
+    <p class="brand-tagline reveal">Automate your operations with AI</p>
   </div>
 
   <!-- Navigation -->
-  <nav class="home-nav">
+  <nav class="home-nav reveal-up">
     <a href="works.html">Works</a>
     <a href="skills.html">Skills</a>
     <a href="about.html">About</a>
@@ -32,10 +33,10 @@
   <!-- Bottom: Headline + Numbers -->
   <div class="home-bottom">
     <div class="home-headline">
-      <p class="headline-ja">AIで、業務をもっとシンプルに。</p>
-      <p class="headline-en">Simplify your business with AI integration<br>and workflow automation.</p>
+      <p class="headline-ja char-reveal">AIで、業務をもっとシンプルに。</p>
+      <p class="headline-en reveal">Simplify your business with AI integration and workflow automation.</p>
     </div>
-    <div class="home-numbers" id="home-numbers">
+    <div class="home-numbers reveal-up" id="home-numbers">
       <div class="number-item">
         <span class="number-value" id="stat-reduction">96<span class="number-unit">%</span></span>
         <span class="number-label">Max Reduction</span>
@@ -53,5 +54,6 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

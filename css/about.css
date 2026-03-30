@@ -19,9 +19,6 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 0 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.2s;
 }
 
 .about-hero-title {
@@ -42,9 +39,6 @@
 /* --- Profile --- */
 .about-profile {
   margin-bottom: 64px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.3s;
 }
 
 .about-name-en {
@@ -89,12 +83,7 @@
 /* --- Section --- */
 .about-section {
   margin-bottom: 56px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
 }
-
-.about-section:nth-of-type(1) { animation-delay: 0.4s; }
-.about-section:nth-of-type(2) { animation-delay: 0.5s; }
 
 .about-section-title {
   font-family: var(--font-display);
@@ -181,9 +170,6 @@
 .about-cta {
   text-align: center;
   padding: 48px 0 0;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.6s;
 }
 
 .about-cta-text {

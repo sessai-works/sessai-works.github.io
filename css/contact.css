@@ -19,9 +19,6 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 0 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.2s;
 }
 
 .contact-hero-title {
@@ -50,9 +47,6 @@
 /* --- Contact Card --- */
 .contact-info {
   margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.3s;
 }
 
 .contact-card {
@@ -112,9 +106,6 @@
 /* --- Guide --- */
 .contact-guide {
   margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.4s;
 }
 
 .contact-guide-title {
@@ -169,9 +160,6 @@
 /* --- Note + CTA --- */
 .contact-note-section {
   text-align: center;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.5s;
 }
 
 .contact-note-text {

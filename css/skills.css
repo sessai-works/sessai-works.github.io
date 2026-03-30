@@ -19,9 +19,6 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 0 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.2s;
 }
 
 .skills-hero-title {
@@ -50,16 +47,7 @@
 /* --- Category --- */
 .skill-category {
   margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
 }
-
-.skill-category:nth-child(1) { animation-delay: 0.3s; }
-.skill-category:nth-child(2) { animation-delay: 0.4s; }
-.skill-category:nth-child(3) { animation-delay: 0.5s; }
-.skill-category:nth-child(4) { animation-delay: 0.6s; }
-.skill-category:nth-child(5) { animation-delay: 0.7s; }
-.skill-category:nth-child(6) { animation-delay: 0.8s; }
 
 .skill-category-header {
   display: flex;

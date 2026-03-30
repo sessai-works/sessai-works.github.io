@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SessAI Works</title>
+<meta name="description" content="SessAI Works について。AIやノーコードツールを活用した業務自動化の支援サービス。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/works.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body class="page-about">
+
+<!-- Navigation -->
+<nav class="page-nav">
+  <a href="index.html" class="page-nav-logo">SessAI Works</a>
+  <div class="page-nav-links">
+    <a href="works.html">Works</a>
+    <a href="skills.html">Skills</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="page-nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-nav-mobile" id="nav-mobile">
+  <a href="works.html" onclick="closeMenu()">Works</a>
+  <a href="skills.html" onclick="closeMenu()">Skills</a>
+  <a href="about.html" class="active" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- Hero -->
+<header class="about-hero">
+  <div class="about-hero-inner">
+    <h1 class="about-hero-title">About</h1>
+  </div>
+</header>
+
+<!-- Profile -->
+<main class="about-content">
+
+  <section class="about-profile">
+    <div class="about-profile-text">
+      <p class="about-intro">
+        SessAI Worksは、AIやノーコードツールを活用した業務の自動化・効率化を専門としています。<br>
+        「時間がかかっている作業」を見つけ出し、最適なツールを組み合わせて解決する仕組みを構築します。
+      </p>
+      <p class="about-intro">
+        これまでに、業務マニュアルの自動生成、チャット通知の自動化、商談データの分析レポート自動作成など、15件以上のプロジェクトを手がけてきました。企画・設計から構築・運用まで、一気通貫で対応しています。
+      </p>
+    </div>
+  </section>
+
+  <!-- What I Do -->
+  <section class="about-section">
+    <h3 class="about-section-title">What I Do</h3>
+    <div class="about-values">
+      <div class="about-value">
+        <div class="about-value-number">01</div>
+        <h4 class="about-value-title">業務ヒアリング</h4>
+        <p class="about-value-desc">「何に時間がかかっているか」を丁寧にヒアリングし、自動化・AI化の余地を見極めます。</p>
+      </div>
+      <div class="about-value">
+        <div class="about-value-number">02</div>
+        <h4 class="about-value-title">仕組みの設計・構築</h4>
+        <p class="about-value-desc">AI、ノーコードツール、Pythonなど最適な技術を組み合わせて、実際に動く仕組みを構築します。</p>
+      </div>
+      <div class="about-value">
+        <div class="about-value-number">03</div>
+        <h4 class="about-value-title">運用・改善</h4>
+        <p class="about-value-desc">導入後も実際の業務で使いながらフィードバックを反映し、定着するまで伴走します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="about-section">
+    <h3 class="about-section-title">Approach</h3>
+    <div class="about-approach">
+      <div class="about-approach-item">
+        <p class="about-approach-text"><strong>小さく作って、素早く試す。</strong>まず最小限の仕組みで効果を検証し、確認できた段階で本格的に展開します。初期コストを抑えながら、確実に成果を出す進め方です。</p>
+      </div>
+      <div class="about-approach-item">
+        <p class="about-approach-text"><strong>「何が楽になるか」を起点にした説明。</strong>技術的な話は必要最小限に留め、業務がどう変わるかを具体的にお伝えします。導入の判断に必要な情報を、わかりやすくご提供します。</p>
+      </div>
+      <div class="about-approach-item">
+        <p class="about-approach-text"><strong>目的に最適な手段を選ぶ。</strong>ノーコードツールで十分な場面ではノーコードで、コードが必要な場面ではPythonやAPIを活用します。技術の選定自体もご提案の一部です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <p class="about-cta-text">お仕事のご相談はお気軽にどうぞ。</p>
+    <a href="contact.html" class="about-cta-button">Contact &rarr;</a>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 SessAI Works. All rights reserved.</p>
+</footer>
+
+<script>
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('nav-mobile');
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+})();
+function closeMenu() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('nav-mobile');
+  if (hamburger) hamburger.classList.remove('active');
+  if (mobileNav) mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

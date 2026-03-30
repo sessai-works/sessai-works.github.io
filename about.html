@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/works.css">
 <link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="page-about">
 
@@ -38,14 +39,14 @@
 <!-- Hero -->
 <header class="about-hero">
   <div class="about-hero-inner">
-    <h1 class="about-hero-title">About</h1>
+    <h1 class="about-hero-title char-reveal">About</h1>
   </div>
 </header>
 
 <!-- Profile -->
 <main class="about-content">
 
-  <section class="about-profile">
+  <section class="about-profile reveal-up">
     <div class="about-profile-text">
       <p class="about-intro">
         SessAI Works（セッサエーアイワークス）は、AIやノーコードツールを活用した業務の自動化・効率化を専門としています。<br>
@@ -59,8 +60,8 @@
 
   <!-- What I Do -->
   <section class="about-section">
-    <h3 class="about-section-title">What I Do</h3>
-    <div class="about-values">
+    <h3 class="about-section-title char-reveal">What I Do</h3>
+    <div class="about-values stagger-children">
       <div class="about-value">
         <div class="about-value-number">01</div>
         <h4 class="about-value-title">業務ヒアリング</h4>
@@ -81,8 +82,8 @@
 
   <!-- Approach -->
   <section class="about-section">
-    <h3 class="about-section-title">Approach</h3>
-    <div class="about-approach">
+    <h3 class="about-section-title char-reveal">Approach</h3>
+    <div class="about-approach stagger-children">
       <div class="about-approach-item">
         <p class="about-approach-text"><strong>小さく作って、素早く試す。</strong>まず最小限の仕組みで効果を検証し、確認できた段階で本格的に展開します。初期コストを抑えながら、確実に成果を出す進め方です。</p>
       </div>
@@ -96,7 +97,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="about-cta">
+  <section class="about-cta reveal-up">
     <p class="about-cta-text">お仕事のご相談はお気軽にどうぞ。</p>
     <a href="contact.html" class="about-cta-button">Contact &rarr;</a>
   </section>
@@ -128,5 +129,6 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 </script>
+<script src="js/animations.js"></script>
 </body>
 </html>

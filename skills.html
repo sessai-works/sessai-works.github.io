@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/works.css">
 <link rel="stylesheet" href="css/skills.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="page-skills">
 
@@ -38,8 +39,8 @@
 <!-- Hero -->
 <header class="skills-hero">
   <div class="skills-hero-inner">
-    <h1 class="skills-hero-title">Skills</h1>
-    <p class="skills-hero-subtitle">AIとクラウドツールを組み合わせて、業務課題を解決するために活用している技術スタックです。</p>
+    <h1 class="skills-hero-title char-reveal">Skills</h1>
+    <p class="skills-hero-subtitle reveal">AIとクラウドツールを組み合わせて、業務課題を解決するために活用している技術スタックです。</p>
   </div>
 </header>
 
@@ -47,7 +48,7 @@
 <main class="skills-content">
 
   <!-- AI / LLM -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -74,7 +75,7 @@
   </section>
 
   <!-- Automation -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -101,7 +102,7 @@
   </section>
 
   <!-- Programming -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -128,7 +129,7 @@
   </section>
 
   <!-- Cloud / API -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
@@ -159,7 +160,7 @@
   </section>
 
   <!-- Microsoft 365 -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
@@ -186,7 +187,7 @@
   </section>
 
   <!-- Other Tools -->
-  <section class="skill-category">
+  <section class="skill-category reveal-up">
     <div class="skill-category-header">
       <div class="skill-category-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -240,5 +241,6 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 </script>
+<script src="js/animations.js"></script>
 </body>
 </html>

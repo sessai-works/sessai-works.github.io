@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/works.css">
 <link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="page-contact">
 
@@ -38,8 +39,8 @@
 <!-- Hero -->
 <header class="contact-hero">
   <div class="contact-hero-inner">
-    <h1 class="contact-hero-title">Contact</h1>
-    <p class="contact-hero-subtitle">業務の自動化・AI活用に関するご相談はお気軽にお問い合わせください。</p>
+    <h1 class="contact-hero-title char-reveal">Contact</h1>
+    <p class="contact-hero-subtitle reveal">業務の自動化・AI活用に関するご相談はお気軽にお問い合わせください。</p>
   </div>
 </header>
 
@@ -47,7 +48,7 @@
 <main class="contact-content">
 
   <!-- What to include -->
-  <section class="contact-guide">
+  <section class="contact-guide reveal-up">
     <h3 class="contact-guide-title">お問い合わせの際にお伝えいただくとスムーズです</h3>
     <div class="contact-guide-items">
       <div class="contact-guide-item">
@@ -75,7 +76,7 @@
   </section>
 
   <!-- Note -->
-  <section class="contact-note-section">
+  <section class="contact-note-section reveal-up">
     <p class="contact-note-text">
       「まだ具体的に決まっていない」「こういうことはできる？」といった段階でも構いません。<br>
       お気軽にご連絡ください。
@@ -113,5 +114,6 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 </script>
+<script src="js/animations.js"></script>
 </body>
 </html>

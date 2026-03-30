@@ -135,9 +135,6 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 0 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.2s;
 }
 
 .works-hero-title {
@@ -159,9 +156,6 @@
 /* --- Filter --- */
 .works-filter {
   padding: 0 24px 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.4s;
 }
 
 .works-filter-inner {
@@ -209,9 +203,6 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px 80px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.6s;
 }
 
 .works-grid {

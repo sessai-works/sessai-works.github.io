@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/works.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body class="page-works">
 
@@ -27,7 +28,6 @@
   </button>
 </nav>
 
-<!-- Mobile Nav -->
 <div class="page-nav-mobile" id="nav-mobile">
   <a href="works.html" class="active" onclick="closeMenu()">Works</a>
   <a href="skills.html" onclick="closeMenu()">Skills</a>
@@ -38,13 +38,13 @@
 <!-- Hero -->
 <header class="works-hero">
   <div class="works-hero-inner">
-    <h1 class="works-hero-title">Works</h1>
-    <p class="works-hero-subtitle">AIとツールを組み合わせた業務自動化の実績をご紹介します。</p>
+    <h1 class="works-hero-title char-reveal">Works</h1>
+    <p class="works-hero-subtitle reveal">AIとツールを組み合わせた業務自動化の実績をご紹介します。</p>
   </div>
 </header>
 
 <!-- Filter -->
-<section class="works-filter">
+<section class="works-filter reveal-up">
   <div class="works-filter-inner">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="document">ドキュメント生成</button>
@@ -58,7 +58,7 @@
 
 <!-- Project Grid -->
 <main class="works-grid-section">
-  <div class="works-grid" id="works-grid">
+  <div class="works-grid stagger-children" id="works-grid">
     <!-- data.jsから動的に生成 -->
   </div>
 </main>
@@ -83,5 +83,6 @@
 </footer>
 
 <script src="js/works.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

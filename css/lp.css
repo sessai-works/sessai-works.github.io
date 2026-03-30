@@ -42,8 +42,20 @@
    White bg, bold typography, red-ish accents
    ============================================================ */
 .lp-pain {
-  background: var(--color-bg);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  background: #0f172a;
+  color: #fff;
+}
+
+.lp-pain .lp-section-label {
+  color: rgba(239, 68, 68, 0.8);
+}
+
+.lp-pain .lp-section-title {
+  color: #fff;
+}
+
+.lp-pain .lp-section-title .accent {
+  color: #f87171;
 }
 
 .lp-pain-list {
@@ -57,16 +69,17 @@
   gap: 16px;
   align-items: flex-start;
   padding: 24px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-left: 3px solid #e74c3c;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #f87171;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .lp-pain-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .lp-pain-icon {
@@ -74,8 +87,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: #fef2f2;
-  color: #e74c3c;
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,13 +98,13 @@
 .lp-pain-text {
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: #fff;
   line-height: 1.7;
 }
 
 .lp-pain-sub {
   font-size: 0.8rem;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.45);
   margin-top: 4px;
   font-weight: 400;
 }
@@ -101,7 +114,7 @@
    Subtle gradient bg, icon cards
    ============================================================ */
 .lp-solution {
-  background: linear-gradient(180deg, #f0f4ff 0%, var(--color-bg) 100%);
+  background: #fff;
 }
 
 .lp-solution-grid {
@@ -174,7 +187,7 @@
    White bg, big numbers, dramatic contrast
    ============================================================ */
 .lp-results {
-  background: var(--color-bg);
+  background: #f1f5f9;
 }
 
 .lp-results-grid {

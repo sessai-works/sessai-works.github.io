@@ -56,18 +56,27 @@
 
     function createParticles() {
       particles = [];
-      var margin = isMobile ? 30 : 60;
+      var margin = isMobile ? 20 : 60;
       var areaW = w - margin * 2;
       var areaH = h - margin * 2;
 
-      // Find cols x rows that exactly equals PARTICLE_COUNT (or closest)
-      // Try different col counts and pick the one with best aspect match
+      var gridPositions = [];
+      var cols, rows;
+
+      // Uniform grid — shrunk to avoid overlapping text
+      var scale = isMobile ? 0.4 : 0.5;
+      var gridW = areaW * scale;
+      var gridH = areaH * scale;
+      // Center the grid on screen
+      var offsetX = (w - gridW) / 2;
+      var offsetY = (h - gridH) / 2;
+
       var bestCols = 5, bestRows = 6, bestDiff = Infinity;
       for (var c = 2; c <= PARTICLE_COUNT; c++) {
         if (PARTICLE_COUNT % c !== 0) continue;
         var r = PARTICLE_COUNT / c;
         var gridAspect = (c / r);
-        var screenAspect = (areaW / areaH);
+        var screenAspect = (gridW / gridH);
         var diff = Math.abs(gridAspect - screenAspect);
         if (diff < bestDiff) {
           bestDiff = diff;
@@ -76,15 +85,24 @@
         }
       }
 
-      var cols = bestCols;
-      var rows = bestRows;
-      var cellW = cols > 1 ? areaW / (cols - 1) : 0;
-      var cellH = rows > 1 ? areaH / (rows - 1) : 0;
+      cols = bestCols;
+      rows = bestRows;
+      var cellW = cols > 1 ? gridW / (cols - 1) : 0;
+      var cellH = rows > 1 ? gridH / (rows - 1) : 0;
 
       for (var i = 0; i < PARTICLE_COUNT; i++) {
         var gridCol = i % cols;
         var gridRow = Math.floor(i / cols);
+        gridPositions.push({
+          x: offsetX + gridCol * cellW,
+          y: offsetY + gridRow * cellH,
+          col: gridCol,
+          row: gridRow
+        });
+      }
 
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
+        var gp = gridPositions[i];
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -92,10 +110,10 @@
           vy: (Math.random() - 0.5) * 0.6,
           driftX: (Math.random() - 0.5) * 0.3,
           driftY: (Math.random() - 0.5) * 0.3,
-          gridX: margin + gridCol * cellW,
-          gridY: margin + gridRow * cellH,
-          gridCol: gridCol,
-          gridRow: gridRow,
+          gridX: gp.x,
+          gridY: gp.y,
+          gridCol: gp.col,
+          gridRow: gp.row,
           radius: 2.5 + Math.random() * 2,
           baseRadius: isMobile ? 3 : 3.5,
           hue: 220 + Math.random() * 30,
@@ -246,12 +264,12 @@
             if (avgOrg > 0.3) {
               // Organized: grid neighbors get strong lines, others fade
               var neighborBoost = isGridNeighbor ? 1 : 0.5;
-              var lineStrength = isMobile ? 0.1 : 1.5;
-              ctx.strokeStyle = 'hsla(225, 80%, 65%, ' + (lineAlpha * avgOrg * lineStrength * neighborBoost) + ')';
-              ctx.lineWidth = isGridNeighbor ? (isMobile ? 0.4 : 1.5) + avgOrg * (isMobile ? 0.2 : 1.2) : (isMobile ? 0.2 : 0.8);
+              var lineStrength = isMobile ? 0.35 : 0.5;
+              ctx.strokeStyle = 'hsla(225, 80%, 72%, ' + (lineAlpha * avgOrg * lineStrength * neighborBoost) + ')';
+              ctx.lineWidth = isGridNeighbor ? (isMobile ? 0.6 : 0.8) + avgOrg * (isMobile ? 0.3 : 0.5) : (isMobile ? 0.3 : 0.5);
             } else {
-              ctx.strokeStyle = 'rgba(130, 140, 170, ' + (lineAlpha * (isMobile ? 0.01 : 0.25)) + ')';
-              ctx.lineWidth = isMobile ? 0.2 : 0.8;
+              ctx.strokeStyle = 'rgba(130, 140, 170, ' + (lineAlpha * (isMobile ? 0.04 : 0.1)) + ')';
+              ctx.lineWidth = isMobile ? 0.3 : 0.5;
             }
 
             ctx.beginPath();

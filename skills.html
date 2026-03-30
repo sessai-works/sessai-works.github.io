@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills — SessAI Works</title>
+<meta name="description" content="SessAI Works のスキル・技術スタック。AI・自動化・クラウドツールを活用した業務効率化。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/works.css">
+<link rel="stylesheet" href="css/skills.css">
+</head>
+<body class="page-skills">
+
+<!-- Navigation -->
+<nav class="page-nav">
+  <a href="index.html" class="page-nav-logo">SessAI Works</a>
+  <div class="page-nav-links">
+    <a href="works.html">Works</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="page-nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-nav-mobile" id="nav-mobile">
+  <a href="works.html" onclick="closeMenu()">Works</a>
+  <a href="skills.html" class="active" onclick="closeMenu()">Skills</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- Hero -->
+<header class="skills-hero">
+  <div class="skills-hero-inner">
+    <h1 class="skills-hero-title">Skills</h1>
+    <p class="skills-hero-subtitle">AIとクラウドツールを組み合わせて、業務課題を解決するために活用している技術スタックです。</p>
+  </div>
+</header>
+
+<!-- Skills Grid -->
+<main class="skills-content">
+
+  <!-- AI / LLM -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">AI / LLM</h2>
+        <p class="skill-category-desc">大規模言語モデルを活用した業務自動化・テキスト生成・データ分析</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">OpenAI API</div>
+        <div class="skill-item-detail">GPT-4oを活用したレポート生成・テキスト分析・構造化出力</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Dify</div>
+        <div class="skill-item-detail">ノーコードでLLMワークフローを構築。チャットボット・文書生成の本番運用</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">プロンプトエンジニアリング</div>
+        <div class="skill-item-detail">業務要件に合わせたプロンプト設計・チューニング・品質改善</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Automation -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">自動化 / ワークフロー</h2>
+        <p class="skill-category-desc">ノーコード・ローコードツールで業務プロセスを自動化</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">Make (Integromat)</div>
+        <div class="skill-item-detail">複数サービスを連携したワークフロー構築。API連携・データ変換・定期実行</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Power Automate</div>
+        <div class="skill-item-detail">Microsoft 365環境での自動化フロー構築。Teams通知・SharePoint連携</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Windows タスクスケジューラ</div>
+        <div class="skill-item-detail">Pythonスクリプトの定期自動実行。月次・四半期レポートの完全自動化</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programming -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">プログラミング</h2>
+        <p class="skill-category-desc">自動化ツールだけでは対応できない処理をコードで実装</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">Python</div>
+        <div class="skill-item-detail">データ集計・ファイル操作・API連携・レポート生成スクリプトの開発</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">FastAPI</div>
+        <div class="skill-item-detail">Webhook受信・REST API構築。チャット通知システムのバックエンド開発</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">HTML / CSS / JavaScript</div>
+        <div class="skill-item-detail">ダッシュボード・ポートフォリオなどのフロントエンド構築</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud / API -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">クラウド / API</h2>
+        <p class="skill-category-desc">クラウドサービスとAPI連携で業務システムを接続</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">Microsoft Graph API</div>
+        <div class="skill-item-detail">Outlook予定表・Teams投稿・SharePointファイル操作のAPI連携</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Azure AD</div>
+        <div class="skill-item-detail">OAuth認証・アプリ登録・権限管理。Graph APIアクセスの認証基盤</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Railway</div>
+        <div class="skill-item-detail">Pythonアプリのクラウドデプロイ。Webhook常時受信サーバーの運用</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">GitHub Pages</div>
+        <div class="skill-item-detail">静的サイトの無料ホスティング。ダッシュボード・ポートフォリオの公開</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Microsoft 365 -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">Microsoft 365</h2>
+        <p class="skill-category-desc">企業で広く使われるMicrosoft環境との連携・自動化</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">SharePoint</div>
+        <div class="skill-item-detail">ファイル自動格納・データ読み取り。レポート保存先として活用</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Teams</div>
+        <div class="skill-item-detail">チャネル投稿・メンション通知の自動化。Bot連携</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Outlook</div>
+        <div class="skill-item-detail">メール自動送信・予定表操作。共有メールボックスの活用</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Tools -->
+  <section class="skill-category">
+    <div class="skill-category-header">
+      <div class="skill-category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </div>
+      <div>
+        <h2 class="skill-category-title">その他ツール</h2>
+        <p class="skill-category-desc">業務システム連携やバージョン管理</p>
+      </div>
+    </div>
+    <div class="skill-items">
+      <div class="skill-item">
+        <div class="skill-item-name">kintone</div>
+        <div class="skill-item-detail">業務データベースとのAPI連携。人材データの検索・抽出</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Chatwork / Slack API</div>
+        <div class="skill-item-detail">チャットツールのWebhook受信・メッセージ送信の自動化</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-name">Git / GitHub</div>
+        <div class="skill-item-detail">バージョン管理・CI/CD。GitHub Actionsによる自動デプロイ</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 SessAI Works. All rights reserved.</p>
+</footer>
+
+<script>
+// Navigation hamburger
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('nav-mobile');
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+})();
+function closeMenu() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('nav-mobile');
+  if (hamburger) hamburger.classList.remove('active');
+  if (mobileNav) mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

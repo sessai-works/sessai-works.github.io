@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — SessAI Works</title>
+<meta name="description" content="SessAI Works のプロジェクト実績一覧。AI業務自動化の導入事例をご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/works.css">
+</head>
+<body class="page-works">
+
+<!-- Navigation -->
+<nav class="page-nav">
+  <a href="index.html" class="page-nav-logo">SessAI Works</a>
+  <div class="page-nav-links">
+    <a href="works.html" class="active">Works</a>
+    <a href="skills.html">Skills</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <button class="page-nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="page-nav-mobile" id="nav-mobile">
+  <a href="works.html" class="active" onclick="closeMenu()">Works</a>
+  <a href="skills.html" onclick="closeMenu()">Skills</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- Hero -->
+<header class="works-hero">
+  <div class="works-hero-inner">
+    <h1 class="works-hero-title">Works</h1>
+    <p class="works-hero-subtitle">AIとツールを組み合わせた業務自動化の実績をご紹介します。</p>
+  </div>
+</header>
+
+<!-- Filter -->
+<section class="works-filter">
+  <div class="works-filter-inner">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="document">ドキュメント生成</button>
+    <button class="filter-btn" data-filter="notification">通知・連携</button>
+    <button class="filter-btn" data-filter="report">レポート・分析</button>
+    <button class="filter-btn" data-filter="matching">マッチング</button>
+    <button class="filter-btn" data-filter="knowledge">ナレッジ・相談</button>
+    <button class="filter-btn" data-filter="management">業務管理</button>
+  </div>
+</section>
+
+<!-- Project Grid -->
+<main class="works-grid-section">
+  <div class="works-grid" id="works-grid">
+    <!-- data.jsから動的に生成 -->
+  </div>
+</main>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-title-en" id="modal-title-en"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 SessAI Works. All rights reserved.</p>
+</footer>
+
+<script src="js/works.js"></script>
+</body>
+</html>

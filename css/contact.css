@@ -1,0 +1,216 @@
+/* ============================================================
+   SessAI Works — Contact Page
+   ============================================================ */
+
+.page-contact {
+  background: var(--color-bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+}
+
+/* --- Hero --- */
+.contact-hero {
+  padding: 140px 0 48px;
+  text-align: center;
+}
+
+.contact-hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.contact-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.contact-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* --- Content --- */
+.contact-content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* --- Contact Card --- */
+.contact-info {
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 32px;
+  text-align: center;
+}
+
+.contact-card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: 12px;
+  color: var(--color-accent);
+}
+
+.contact-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.contact-card-link {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  transition: opacity 0.2s;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.contact-card-link:hover {
+  opacity: 0.7;
+}
+
+.contact-card-note {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+}
+
+/* --- Guide --- */
+.contact-guide {
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.contact-guide-title {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.contact-guide-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-guide-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.contact-guide-number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-guide-item-title {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.contact-guide-item-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* --- Note + CTA --- */
+.contact-note-section {
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.contact-note-text {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.contact-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(74, 108, 247, 0.25);
+}
+
+.contact-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 108, 247, 0.35);
+}
+
+.contact-cta-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 767px) {
+  .contact-hero { padding: 110px 0 36px; }
+}

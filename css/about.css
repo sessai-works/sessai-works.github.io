@@ -1,0 +1,221 @@
+/* ============================================================
+   SessAI Works — About Page
+   ============================================================ */
+
+.page-about {
+  background: var(--color-bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+}
+
+/* --- Hero --- */
+.about-hero {
+  padding: 140px 0 48px;
+  text-align: center;
+}
+
+.about-hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.about-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+/* --- Content --- */
+.about-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* --- Profile --- */
+.about-profile {
+  margin-bottom: 64px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.about-name-en {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.about-name-ja {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.about-role {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.about-intro {
+  font-size: 0.92rem;
+  color: var(--color-text);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.about-intro:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Section --- */
+.about-section {
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.about-section:nth-of-type(1) { animation-delay: 0.4s; }
+.about-section:nth-of-type(2) { animation-delay: 0.5s; }
+
+.about-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* --- Values (What I Do) --- */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about-value {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 24px 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-value:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.about-value-number {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.about-value-title {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.about-value-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* --- Approach --- */
+.about-approach {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-approach-item {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 22px 24px;
+  border-left: 3px solid var(--color-accent);
+}
+
+.about-approach-text {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.9;
+}
+
+.about-approach-text strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* --- CTA --- */
+.about-cta {
+  text-align: center;
+  padding: 48px 0 0;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.about-cta-text {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.about-cta-button {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 12px 32px;
+  transition: all 0.2s;
+}
+
+.about-cta-button:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 767px) {
+  .about-hero { padding: 110px 0 36px; }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+}

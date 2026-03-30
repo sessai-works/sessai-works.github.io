@@ -63,7 +63,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
   z-index: 1001;
 }
 
@@ -179,7 +181,8 @@
   background: transparent;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 8px 20px;
+  padding: 12px 20px;
+  min-height: 44px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -270,7 +273,7 @@
 
 .work-card-badge {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 10px;
@@ -301,7 +304,7 @@
 
 .work-card-tool {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-accent);
   background: var(--color-accent-light);
@@ -389,8 +392,8 @@
 }
 
 .modal-close {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 8px;
   border: none;
   background: rgba(0, 0, 0, 0.04);
@@ -421,7 +424,7 @@
 
 .modal-section-label {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -470,7 +473,7 @@
 
 .modal-impact-label {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   padding: 2px 8px;

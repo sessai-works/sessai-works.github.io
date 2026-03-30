@@ -46,10 +46,11 @@
     var mouseX = -1, mouseY = -1;
     var isVisible = true;
 
-    // --- Particle system ---
+    // --- Particle system (reduce on mobile) ---
     var particles = [];
-    var PARTICLE_COUNT = 60;
-    var CONNECT_DIST = 120;
+    var isMobile = window.innerWidth < 768;
+    var PARTICLE_COUNT = isMobile ? 30 : 60;
+    var CONNECT_DIST = isMobile ? 100 : 120;
     var CYCLE_DURATION = 8000;    // ms per full cycle
     var ORGANIZE_RATIO = 0.45;    // 45% of cycle = organized state
 
@@ -97,6 +98,9 @@
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      isMobile = w < 768;
+      PARTICLE_COUNT = isMobile ? 30 : 60;
+      CONNECT_DIST = isMobile ? 100 : 120;
       createParticles();
     }
 
@@ -225,6 +229,18 @@
       mouseY = e.clientY;
     });
 
+    document.addEventListener('touchmove', function (e) {
+      if (e.touches.length > 0) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function () {
+      mouseX = -1;
+      mouseY = -1;
+    });
+
     document.addEventListener('mouseleave', function () {
       mouseX = -1;
       mouseY = -1;
@@ -242,7 +258,10 @@
   // 3. Initialize
   // ============================================================
   document.addEventListener('DOMContentLoaded', function () {
-    initCanvas();
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      initCanvas();
+    }
     fetchDashboardData();
   });
 })();

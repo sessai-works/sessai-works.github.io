@@ -7,6 +7,7 @@
 .lp-section {
   padding: 100px 24px;
   position: relative;
+  z-index: 10;
 }
 
 .lp-inner {
@@ -372,6 +373,8 @@
   text-align: center;
   padding: 80px 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 10;
 }
 
 .lp-cta-title {
@@ -422,6 +425,8 @@
 .lp-footer {
   background: #0a0e1a;
   padding: 48px 24px 32px;
+  position: relative;
+  z-index: 10;
 }
 
 .lp-footer-nav-buttons {

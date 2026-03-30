@@ -37,12 +37,13 @@ a { color: inherit; text-decoration: none; }
 
 /* --- Canvas Background --- */
 #bg-canvas {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 0;
+  pointer-events: none;
 }
 
 /* --- Home Overlay --- */

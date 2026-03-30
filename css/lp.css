@@ -3,30 +3,6 @@
    Visual rhythm: light → light → light → DARK → ACCENT
    ============================================================ */
 
-/* --- LP Nav (transparent → solid on scroll) --- */
-.lp-nav {
-  background: transparent;
-  border-bottom: none;
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.lp-nav .page-nav-logo {
-  color: var(--color-text);
-  transition: color 0.3s ease;
-}
-
-.lp-nav .page-nav-links a {
-  color: var(--color-text-secondary);
-}
-
-.lp-nav.scrolled {
-  background: rgba(250, 251, 253, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-}
-
 /* --- Shared LP Section --- */
 .lp-section {
   padding: 100px 24px;

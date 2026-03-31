@@ -294,16 +294,6 @@
   z-index: 10;
 }
 
-.lp-solution-cta {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .lp-solution-cta {
-    display: block;
-    padding: 0 20px 48px;
-  }
-}
 
 .lp-mid-cta-text {
   font-family: var(--font-body);

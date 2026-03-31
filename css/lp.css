@@ -541,9 +541,9 @@
   background: var(--color-accent);
   color: #fff;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 16px 40px;
+  padding: 14px 36px;
   border-radius: 12px;
   border: none;
   cursor: pointer;

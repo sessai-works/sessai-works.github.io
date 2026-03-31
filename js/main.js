@@ -49,7 +49,7 @@
     // --- Particle system (reduce on mobile) ---
     var particles = [];
     var isMobile = window.innerWidth < 768;
-    var PARTICLE_COUNT = isMobile ? 30 : 60;
+    var PARTICLE_COUNT = isMobile ? 20 : 60;
     var CONNECT_DIST = isMobile ? 100 : 120;
     var CYCLE_DURATION = 8000;    // ms per full cycle
     var ORGANIZE_RATIO = 0.45;    // 45% of cycle = organized state
@@ -149,7 +149,7 @@
       canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       isMobile = w < 768;
-      PARTICLE_COUNT = isMobile ? 30 : 60;
+      PARTICLE_COUNT = isMobile ? 20 : 60;
       CONNECT_DIST = isMobile ? 100 : 120;
       createParticles();
     }

@@ -1,6 +1,6 @@
 /* ============================================================
    SessAI Works — Landing Page Sections
-   Visual rhythm: light → light → light → DARK → ACCENT
+   Visual rhythm: DARK → light → DARK → light → ACCENT → DARK → light → DARK
    ============================================================ */
 
 /* --- Shared LP Section --- */
@@ -185,10 +185,23 @@
 
 /* ============================================================
    3. RESULTS — Before/After 実績
-   White bg, big numbers, dramatic contrast
+   DARK bg — big numbers glow against dark
    ============================================================ */
 .lp-results {
-  background: #f1f5f9;
+  background: #0f172a;
+  color: #fff;
+}
+
+.lp-results .lp-section-label {
+  color: rgba(74, 108, 247, 0.8);
+}
+
+.lp-results .lp-section-title {
+  color: #fff;
+}
+
+.lp-results .lp-section-title .accent {
+  color: #818cf8;
 }
 
 .lp-results-grid {
@@ -198,19 +211,20 @@
 }
 
 .lp-result-item {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 36px 32px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   gap: 36px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .lp-result-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 .lp-result-number {
@@ -230,13 +244,13 @@
 .lp-result-number .unit {
   font-size: 0.4em;
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .lp-result-number .label {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  color: var(--color-text-tertiary);
+  color: rgba(255, 255, 255, 0.4);
   margin-top: 6px;
   letter-spacing: 0.05em;
 }
@@ -248,7 +262,7 @@
 .lp-result-body h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: #fff;
   margin-bottom: 8px;
 }
 
@@ -260,7 +274,7 @@
 }
 
 .lp-result-ba + .lp-result-ba {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .lp-result-ba-tag {
@@ -274,20 +288,21 @@
   flex-shrink: 0;
 }
 
-.lp-result-ba-tag.before { background: #fee2e2; color: #991b1b; }
-.lp-result-ba-tag.after { background: #dcfce7; color: #166534; }
+.lp-result-ba-tag.before { background: rgba(248, 113, 113, 0.2); color: #fca5a5; }
+.lp-result-ba-tag.after { background: rgba(74, 222, 128, 0.2); color: #86efac; }
 
 .lp-result-ba-text {
   font-size: 0.85rem;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
 }
 
 /* ============================================================
    Featured Works — 代表事例
+   Subtle gray — contrast after dark Results
    ============================================================ */
 .lp-featured {
-  background: #fff;
+  background: #f8fafc;
 }
 
 .lp-featured-grid {
@@ -370,24 +385,33 @@
 }
 
 /* ============================================================
-   Mid CTA — Results直後
+   Mid CTA — Accent gradient for strong conversion moment
    ============================================================ */
 .lp-mid-cta {
-  background: #fff;
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 100%);
   text-align: center;
-  padding: 64px 24px;
+  padding: 72px 24px;
   position: relative;
   z-index: 10;
 }
-
 
 .lp-mid-cta-text {
   font-family: var(--font-body);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 600;
-  color: var(--color-text);
+  color: #fff;
   margin-bottom: 24px;
   line-height: 1.6;
+}
+
+.lp-mid-cta .lp-cta-button {
+  background: #fff;
+  color: #4a6cf7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lp-mid-cta .lp-cta-button:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 /* ============================================================

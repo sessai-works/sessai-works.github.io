@@ -204,12 +204,12 @@
 .about-cta-button {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #4a6cf7;
   background: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 14px 36px;
   transition: all 0.2s;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);

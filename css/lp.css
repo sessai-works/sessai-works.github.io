@@ -284,6 +284,26 @@
 }
 
 /* ============================================================
+   Mid CTA — Results直後
+   ============================================================ */
+.lp-mid-cta {
+  background: #fff;
+  text-align: center;
+  padding: 64px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.lp-mid-cta-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ============================================================
    4. PROCESS — 導入の流れ
    DARK background for contrast break
    ============================================================ */
@@ -445,17 +465,19 @@
   font-size: 0.85rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
-  padding: 12px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
+  padding: 4px 0;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.lp-footer-nav-buttons a::before {
+  content: '-';
+  margin-right: 6px;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .lp-footer-nav-buttons a:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .lp-footer-bottom {

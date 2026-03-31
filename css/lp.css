@@ -284,6 +284,92 @@
 }
 
 /* ============================================================
+   Featured Works — 代表事例
+   ============================================================ */
+.lp-featured {
+  background: #fff;
+}
+
+.lp-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.lp-featured-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.lp-featured-category {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.lp-featured-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.lp-featured-card p {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.lp-featured-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.lp-featured-tools span {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-accent-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.lp-featured-more {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.lp-featured-more a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+.lp-featured-more a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================================
    Mid CTA — Results直後
    ============================================================ */
 .lp-mid-cta {
@@ -415,6 +501,15 @@
   line-height: 1.8;
 }
 
+.lp-cta-availability {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
 .lp-cta-button {
   display: inline-flex;
   align-items: center;
@@ -507,6 +602,10 @@
   .lp-solution-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .lp-featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
@@ -519,6 +618,10 @@
   }
 
   .lp-solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-featured-grid {
     grid-template-columns: 1fr;
   }
 

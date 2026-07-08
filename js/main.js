@@ -11,7 +11,7 @@
   // ============================================================
   function fetchDashboardData() {
     var script = document.createElement('script');
-    script.src = 'https://sugatatakuma.github.io/bof-ai-dashboard/js/data.js';
+    script.src = 'js/works-data.js';
     script.onload = function () {
       if (typeof DASHBOARD_DATA !== 'undefined') {
         var s = DASHBOARD_DATA.summary;

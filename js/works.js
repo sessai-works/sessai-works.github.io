@@ -10,66 +10,22 @@
   var currentFilter = 'all';
 
   // ============================================================
-  // Category mapping: project name → business category
+  // Data source: js/works-data.js (bundled, pre-anonymized snapshot).
+  // Every project already carries a `category` and display-ready, scrubbed
+  // text, so no client-side mapping or sanitizing is needed here — and no
+  // employer/client identifiers live in this file.
   // ============================================================
-  var CATEGORY_MAP = {
-    '業務マニュアル自動作成ツール': 'document',
-    '議事録自動作成ツール': 'document',
-    '決算レポート自動作成': 'document',
-    'チャット通知自動化システム': 'notification',
-    'Slack通知自動化システム': 'notification',
-    '案件マッチングメール自動配信': 'matching',
-    'AI人材マッチングシステム': 'matching',
-    '商談分析月次レポート自動作成': 'report',
-    '商談分析四半期レポート自動作成': 'report',
-    '工数分析レポート自動作成': 'report',
-    '社内ナレッジAIチャットボット': 'knowledge',
-    'AI活用相談ボット': 'knowledge',
-    'AIプロジェクトスケジューラー': 'management',
-    'AI研修カリキュラム': 'knowledge',
-    'GRスタンダード HTML版': 'document',
-    'グランサーズスタンダード HTML化': 'document'
-  };
-
-  function getCategory(name) {
-    return CATEGORY_MAP[name] || 'other';
+  function getCategory(project) {
+    return (project && project.category) || 'other';
   }
-
-  // ============================================================
-  // Display name override: rename company-specific names
-  // ============================================================
-  var NAME_OVERRIDE = {
-    'GRスタンダード HTML版': '社内マニュアル HTML化ツール',
-    'グランサーズスタンダード HTML化': '社内マニュアル HTML化ツール',
-    'Grancers Standard HTML Conversion': 'Internal Manual HTML Conversion'
-  };
 
   function getDisplayName(name) {
-    return NAME_OVERRIDE[name] || name;
+    return name || '';
   }
 
-  // ============================================================
-  // Text sanitizer: replace company-specific terms
-  // ============================================================
-  var TEXT_REPLACEMENTS = [
-    ['BOF-AI-Dashboard', 'AI活用プロジェクトダッシュボード'],
-    ['BOF AIダッシュボード', 'AI活用プロジェクトダッシュボード'],
-    ['BOF-AI Dashboard', 'AI活用プロジェクトダッシュボード'],
-    ['AIプロジェクト担当者（菅田）', 'AIプロジェクト担当者'],
-    ['菅田', '担当者'],
-    ['BOF', '社内'],
-    ['グランサーズスタンダード', '社内業務マニュアル'],
-    ['GRスタンダード', '社内業務マニュアル'],
-    ['Grancers Standard', 'Internal Manual'],
-    ['Grancers', 'the company'],
-    ['グランサーズ', '自社']
-  ];
-
+  // Data is already sanitized at build time; kept as a passthrough so the
+  // render/modal call sites stay unchanged.
   function sanitizeText(text) {
-    if (!text) return text;
-    for (var i = 0; i < TEXT_REPLACEMENTS.length; i++) {
-      text = text.split(TEXT_REPLACEMENTS[i][0]).join(TEXT_REPLACEMENTS[i][1]);
-    }
     return text;
   }
 
@@ -81,7 +37,7 @@
     grid.innerHTML = '<div class="works-loading">Loading projects...</div>';
 
     var script = document.createElement('script');
-    script.src = 'https://sugatatakuma.github.io/bof-ai-dashboard/js/data.js';
+    script.src = 'js/works-data.js';
     script.onload = function () {
       if (typeof DASHBOARD_DATA !== 'undefined') {
         projects = DASHBOARD_DATA.projects || [];
@@ -108,7 +64,7 @@
       if (p.status === 'designed' || p.status === 'planned') continue;
 
       // Filter by category
-      var category = getCategory(p.name);
+      var category = getCategory(p);
       if (currentFilter !== 'all' && category !== currentFilter) continue;
 
       // Tools

@@ -1,0 +1,52 @@
+name: leak-scan
+
+# Server-side backstop for the "no identity leak" rule. Scans every tracked file
+# for identifier shapes (public, generic patterns) and for a private denylist of
+# real employer/client/colleague names (stored as the LEAK_DENYLIST repo secret,
+# never written into this public file). Only file names are ever printed — never
+# the matched content — so this log cannot itself leak an identifier.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generic identifier-shape scan
+        run: |
+          set -euo pipefail
+          # Only patterns with NO legitimate use on this site. (The site's own
+          # domain sessai-works.github.io and its own contact email are expected,
+          # so we do NOT blanket-block .github.io or email — those would false-
+          # positive. Employer/handle/client names live in the private denylist.)
+          # -l => file names only; never echo matched content into the public log.
+          if grep -rIlE --exclude-dir=.git --exclude-dir=.github -e '\.pages\.dev' . ; then
+            echo "::error::A private-dashboard URL leaked into the published site — see files above."
+            exit 1
+          fi
+          echo "generic shape scan: clean"
+
+      - name: Private denylist scan
+        env:
+          DENY: ${{ secrets.LEAK_DENYLIST }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DENY:-}" ]; then
+            echo "::error::LEAK_DENYLIST secret is not set — cannot verify. Add it in repo Settings > Secrets."
+            exit 1
+          fi
+          printf '%s\n' "$DENY" | grep -v '^[[:space:]]*$' > deny.txt
+          # -l => file names only; never print the matched term (it is an identifier).
+          if grep -rIlF -f deny.txt --exclude-dir=.git --exclude-dir=.github --exclude=deny.txt . ; then
+            echo "::error::A denylisted identifier was found in the files listed above. Do NOT print the term; fix the source and re-run the anonymizer."
+            rm -f deny.txt
+            exit 1
+          fi
+          rm -f deny.txt
+          echo "private denylist scan: clean"

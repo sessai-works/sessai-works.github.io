@@ -3,8 +3,8 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 1,
-    "totalProjects": 23,
+    "toolsInProduction": 16,
+    "totalProjects": 25,
     "categories": 6,
     "maxReduction": 96
   },
@@ -546,7 +546,7 @@ var DASHBOARD_DATA = {
       "name": "定例予定オートメーカー",
       "nameEn": "Recurring Schedule Auto-Maker",
       "category": "other",
-      "status": "testing",
+      "status": "live",
       "description": "毎月「第N営業日」に発生する定例業務を、AIが事前計算した確定日付マスタ(Excel)からPower AutomateでOutlookカレンダーに出席者付き(招待・出欠あり)で一括登録",
       "detail": {
         "overview": "毎月決まった営業日（第3営業日・第10営業日など、業務ごとにバラバラ）に発生する定例業務を、AI(Claude)が祝日込みで事前に正しい確定日付を計算したExcelマスタから、Power Automateが1行ずつOutlookカレンダーへV4で作成し、出席者へ招待(出欠あり)を送る。営業日計算はマスタ生成時に確定させ、フローは『マスタを読んで転記する』だけに単純化。件名末尾の[AUTO:一意キー]＋当日取得＋未存在条件で再実行時の二重登録を防ぐ。",

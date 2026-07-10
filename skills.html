@@ -235,6 +235,18 @@
     </div>
   </section>
 
+  <!-- Tools actually used across projects — auto-generated from works-data.js
+       so this list stays current without hand-editing (hidden if data fails). -->
+  <section class="skill-tools-census reveal-up" id="tools-census" style="display:none;">
+    <div class="skill-category-header">
+      <div>
+        <h2 class="skill-category-title">実績で使ったツール</h2>
+        <p class="skill-category-desc">これまでのプロジェクトで実際に使用したツール・技術の一覧です（自動で集計しています）。</p>
+      </div>
+    </div>
+    <div class="census-chips" id="census-chips"></div>
+  </section>
+
 </main>
 
 <!-- Footer -->
@@ -270,6 +282,36 @@ function closeMenu() {
   if (mobileNav) mobileNav.classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// Auto-fill the "実績で使ったツール" chips from the anonymized works snapshot.
+// Data-derived (already scrubbed by regen), so it is both leak-safe and always
+// current. Fail-safe: if the data can't load, the section stays hidden.
+(function () {
+  var box = document.getElementById('tools-census');
+  var chips = document.getElementById('census-chips');
+  if (!box || !chips) return;
+  var s = document.createElement('script');
+  s.src = 'js/works-data.js';
+  s.onload = function () {
+    if (typeof DASHBOARD_DATA === 'undefined' || !DASHBOARD_DATA.projects) return;
+    var counts = {};
+    DASHBOARD_DATA.projects.forEach(function (p) {
+      ((p.detail && p.detail.tools) || []).forEach(function (t) {
+        var head = String(t).split('（')[0].split('(')[0].trim();
+        if (head) counts[head] = (counts[head] || 0) + 1;
+      });
+    });
+    var names = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+    if (!names.length) return;
+    var html = '';
+    for (var i = 0; i < names.length; i++) {
+      html += '<span class="census-chip">' + names[i] + '</span>';
+    }
+    chips.innerHTML = html;
+    box.style.display = '';
+  };
+  document.head.appendChild(s);
+})();
 </script>
 <script src="js/animations.js"></script>
 </body>

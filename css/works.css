@@ -364,6 +364,58 @@
   color: var(--color-accent);
 }
 
+/* Category badge (🏷) — neutral accent chip, distinct from the status colors */
+.work-card-badge-cat {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* Effect line = measured saved time, the card's headline benefit */
+.work-card-effect {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.5;
+  margin: 4px 0 16px;
+}
+
+/* Fallback short description when a project has no measured saved-time */
+.work-card-lead {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 4px 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Push the footer to the bottom so cards of unequal content align */
+.work-card-footer { margin-top: auto; }
+
+/* "くわしく見る" call-to-action in the card footer */
+.work-card-more {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+.work-card:hover .work-card-more { transform: translateX(2px); }
+
+/* Modal lead paragraph (the one-line description, shown first) */
+.modal-lead {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 /* --- Modal --- */
 .modal-overlay {
   display: none;

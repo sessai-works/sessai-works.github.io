@@ -144,3 +144,28 @@
   }
 
 }
+
+/* --- Tools-in-practice census (auto-generated chip cloud) --- */
+.skill-tools-census {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+}
+
+.census-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.census-chip {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 5px 12px;
+  border-radius: 8px;
+  line-height: 1.4;
+}

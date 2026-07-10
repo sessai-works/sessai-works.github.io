@@ -32,6 +32,44 @@ jobs:
           fi
           echo "generic shape scan: clean"
 
+      - name: Identifier-shape scan (own contact allow-listed)
+        run: |
+          set -uo pipefail
+          # Server-side backstop for identifier SHAPES the fixed denylist can
+          # miss (colleague emails, internal tenant URLs, real-name GitHub
+          # handles, leaked API keys). Fires even when the local pre-commit is
+          # bypassed (--no-verify / a fresh clone / a different machine).
+          #
+          # The site's OWN public contact details are expected on the page, so
+          # they are allow-listed. Listing them here reveals nothing new — they
+          # are already published (JSON-LD email, canonical domain).
+          # Only file names + a rule tag are printed, never the matched term.
+          ALLOW='sessai\.works@gmail\.com|sessai-works\.github\.io'
+          fail=0
+          scan() {
+            rule="$1"; re="$2"
+            while IFS= read -r f; do
+              [ -f "$f" ] || continue
+              if grep -oIE "$re" "$f" 2>/dev/null | grep -qvE "$ALLOW"; then
+                echo "::error::[shape:$rule] identifier shape in $f (matched term withheld)"
+                fail=1
+              fi
+            done < <(grep -rIlE --exclude-dir=.git --exclude-dir=.github -e "$re" . 2>/dev/null || true)
+          }
+          scan email        '[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}'
+          scan githubio     '[[:alnum:]_-]+\.github\.io'
+          scan sharepoint   '[[:alnum:]_-]+\.sharepoint\.com'
+          scan onmicrosoft  '[[:alnum:]_-]+\.onmicrosoft\.com'
+          scan office-hook  '[[:alnum:].-]*webhook\.office\.com'
+          scan key-openai   'sk-[[:alnum:]]{20,}'
+          scan key-github   'ghp_[[:alnum:]]{30,}'
+          scan key-google   'AIza[[:alnum:]_-]{35}'
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::identifier-shape scan found a non-allow-listed shape (see files above)."
+            exit 1
+          fi
+          echo "identifier-shape scan: clean"
+
       - name: Private denylist scan
         env:
           DENY: ${{ secrets.LEAK_DENYLIST }}

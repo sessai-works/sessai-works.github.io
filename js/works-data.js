@@ -167,7 +167,7 @@ var DASHBOARD_DATA = {
     {
       "name": "決算報告書Reader",
       "nameEn": "Financial Statement Reader",
-      "category": "other",
+      "category": "report",
       "status": "live",
       "description": "決算書PDFから数値を自動で読み取り、整合性チェック・3期比較・原因分析・今後の打ち手まで提案するAIツール",
       "detail": {
@@ -184,7 +184,7 @@ var DASHBOARD_DATA = {
     {
       "name": "AIスケジューラー",
       "nameEn": "AI Scheduler",
-      "category": "other",
+      "category": "management",
       "status": "live",
       "description": "AIがプロジェクト状況を分析し、Outlook予定表の空き時間に作業予定を自動配置する3日間ローリングスケジューラー",
       "detail": {
@@ -252,7 +252,7 @@ var DASHBOARD_DATA = {
     {
       "name": "AI活用プロジェクトダッシュボード",
       "nameEn": "AI Project Dashboard",
-      "category": "other",
+      "category": "management",
       "status": "live",
       "description": "担当者が担当するAI活用プロジェクトの進捗・ステータスを一覧管理するWebダッシュボード",
       "detail": {
@@ -319,7 +319,7 @@ var DASHBOARD_DATA = {
     {
       "name": "パーソナルタスク統合管理ボード",
       "nameEn": "Personal Task Integrated Board",
-      "category": "other",
+      "category": "management",
       "status": "building",
       "description": "全プロジェクトの残タスクを1画面で可視化し、タスク単位で推定工数・実績時間・Outlook予定連携まで行う個人用の補助ツール",
       "detail": {
@@ -364,7 +364,7 @@ var DASHBOARD_DATA = {
     {
       "name": "決算書PDF Masker",
       "nameEn": "Financial Statement PDF Masker",
-      "category": "other",
+      "category": "document",
       "status": "testing",
       "description": "決算書PDFの機密情報（社名・人名・住所・電話番号・口座情報等）を自動検出し、AI投入用に安全化するローカル完結ツール",
       "detail": {
@@ -388,7 +388,7 @@ var DASHBOARD_DATA = {
     {
       "name": "SEO記事作成ワークフロー",
       "nameEn": "SEO Article Creation Workflow",
-      "category": "other",
+      "category": "document",
       "status": "live",
       "description": "記事制作会社のWordブリーフを添付するだけで、SEO×AEO最適化された記事を自動執筆して『_完成稿.docx』として返す、Claude Cowork上のスキル化された一気通貫ワークフロー",
       "detail": {
@@ -410,7 +410,7 @@ var DASHBOARD_DATA = {
     {
       "name": "AEO対策記事作成",
       "nameEn": "AEO Article Creation",
-      "category": "other",
+      "category": "document",
       "status": "live",
       "description": "生成AI(ChatGPT・Gemini・Claude・Perplexity)に引用・参照されるAEO特化記事を、Claude Coworkスキルで全40本(記事11〜50)・月8本ペースで自動執筆",
       "detail": {
@@ -433,7 +433,7 @@ var DASHBOARD_DATA = {
     {
       "name": "経営管理部Q&A蓄積ナレッジ化",
       "nameEn": "Management Dept Q&A Knowledge Base",
-      "category": "other",
+      "category": "knowledge",
       "status": "live",
       "description": "経営管理部に集中するバックオフィス質問を自動収集・構造化蓄積し、最終的に既存社内AIチャットボットが自動回答する状態へ段階移行するシステム",
       "detail": {
@@ -457,7 +457,7 @@ var DASHBOARD_DATA = {
     {
       "name": "Outlook特定差出人＋件名キーワード → Teams 通知（絞り込み版）",
       "nameEn": "Outlook Sender + Subject-Keyword Filter → Teams Notification",
-      "category": "other",
+      "category": "notification",
       "status": "testing",
       "description": "特定の差出人から届いたメールのうち、件名に指定キーワードを含むものだけをTeams個人チャットへ自動通知（Power Automate標準コネクタのみ・プレミアム不要）",
       "detail": {
@@ -478,7 +478,7 @@ var DASHBOARD_DATA = {
     {
       "name": "Outlook特定差出人 → Teams 通知システム",
       "nameEn": "Outlook Sender Filter → Teams Notification",
-      "category": "other",
+      "category": "notification",
       "status": "live",
       "description": "特定の差出人アドレスからメールが届いた瞬間に、依頼者本人のTeams個人チャットへアラートを自動通知（Power Automate標準コネクタのみ）",
       "detail": {
@@ -499,7 +499,7 @@ var DASHBOARD_DATA = {
     {
       "name": "AI最新情報 毎朝レポート",
       "nameEn": "Daily AI News Report",
-      "category": "other",
+      "category": "report",
       "status": "live",
       "description": "AIインテグレーターとして必要な最新情報（生成AIの動向・他社事例・経理AI活用・プロスキル・ツールアップデート）を毎朝Notionに自動集約するクラウド常時稼働ブリーフィング",
       "detail": {
@@ -522,7 +522,7 @@ var DASHBOARD_DATA = {
     {
       "name": "業務ガントチャート自動生成",
       "nameEn": "Monthly Task Gantt Chart Generator",
-      "category": "other",
+      "category": "management",
       "status": "live",
       "description": "業務管理ツールの月次業務データをAIが取得し、着手日〜期限日・担当者・クライアントを1画面で見渡せるHTMLガントチャートを自動生成",
       "detail": {
@@ -545,7 +545,7 @@ var DASHBOARD_DATA = {
     {
       "name": "定例予定オートメーカー",
       "nameEn": "Recurring Schedule Auto-Maker",
-      "category": "other",
+      "category": "management",
       "status": "live",
       "description": "毎月「第N営業日」に発生する定例業務を、AIが事前計算した確定日付マスタ(Excel)からPower AutomateでOutlookカレンダーに出席者付き(招待・出欠あり)で一括登録",
       "detail": {

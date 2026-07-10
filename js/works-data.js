@@ -100,27 +100,6 @@ var DASHBOARD_DATA = {
       }
     },
     {
-      "name": "Slack通知自動化システム",
-      "nameEn": "Slack Notification Automation",
-      "category": "notification",
-      "status": "testing",
-      "description": "Slackでクライアントから届いた「メンション・ダイレクトメッセージ」を、担当社員のTeams個人チャットに自動でお知らせし、見落とし・返信遅れを防ぐ仕組み（サーバー不要のシンプル版）",
-      "detail": {
-        "overview": "通知の届け先を「共有チャネル」から「各社員のTeams個人チャット」に変えたことで、これまで必要だったサーバーや複雑な認証をすべて不要化。本番稼働中の『Outlook→Teams通知』と同じ仕組み（Power Automate標準）をそのまま使い、Slackの取得は、自社管理のワークスペースは既存のMakeで確実に、相手管理のワークスペースはSlackの標準メール通知で補う、二段構えのシンプル設計。",
-        "background": "一部のクライアントはSlackでやり取りしており、Chatwork版と同様の通知自動化ニーズがあった。",
-        "tools": [
-          "Power Automate（Microsoftの業務自動化ツール・標準機能のみ）",
-          "Make（ノーコードの自動化ツール・既存利用）",
-          "Outlook / Teams（メール受信と個人チャット通知・既存の仕組みを流用）"
-        ],
-        "impact": {
-          "before": "Slackを定期的に確認 → 見逃し・対応遅延のリスク",
-          "after": "見落とした@メンション・DMだけ、Teamsの個人チャットに自動でお知らせ（サーバー・追加費用なし）",
-          "savedTime": "返信遅れ・見落としの削減（サーバー運用ゼロで実現）"
-        }
-      }
-    },
-    {
       "name": "工数分析レポート自動作成",
       "nameEn": "Work-Hours Analysis Report Generator",
       "category": "report",
@@ -294,29 +273,6 @@ var DASHBOARD_DATA = {
       }
     },
     {
-      "name": "社内マニュアル HTML化ツール",
-      "nameEn": "Internal Manual HTML Conversion",
-      "category": "document",
-      "status": "building",
-      "description": "247MBの社内業務マニュアル（PowerPoint 1,930枚）を、ブラウザで素早く全文検索できる軽量HTMLに変換",
-      "detail": {
-        "overview": "社内業務ナレッジ集（社内バックオフィス業務ナレッジ集約PPTX）を、ブラウザで閲覧・全文検索可能なHTMLドキュメントに変換。1,930スライドを「バックオフィス業務」「ソフトスキル」「支援先企業独自」の3カテゴリ×25セクションに再構成し、重複195枚を排除。",
-        "background": "247MBのPPTXファイルは重く開きづらく、必要な情報を検索で見つけることが困難だった。社員が手軽にブラウザで閲覧・検索できる形式への変換が求められた。",
-        "tools": [
-          "Python（プログラミング言語）",
-          "python-pptx（PowerPointを操作するライブラリ）",
-          "HTML（Web文書の記述言語）",
-          "CSS（Webの見た目を指定する言語）",
-          "JavaScript（Webで動きを作る言語）"
-        ],
-        "impact": {
-          "before": "247MBのPPTXを開いてCtrl+Fで検索（起動に数十秒）",
-          "after": "ブラウザで即座に全文検索・カテゴリ別閲覧（HTML合計約4MB）",
-          "savedTime": "情報検索時間の大幅短縮＋アクセシビリティ向上"
-        }
-      }
-    },
-    {
       "name": "パーソナルタスク統合管理ボード",
       "nameEn": "Personal Task Integrated Board",
       "category": "management",
@@ -333,32 +289,6 @@ var DASHBOARD_DATA = {
           "GitHub Pages（静的サイト公開サービス）"
         ],
         "impact": null
-      }
-    },
-    {
-      "name": "ナレッジストック",
-      "nameEn": "Knowledge Stock",
-      "category": "other",
-      "status": "live",
-      "description": "経理・税務の専門家2名が持つ知見をAIで整理・保存し、SEO記事執筆時に再利用できるようにするシステム",
-      "detail": {
-        "overview": "経理・税務の専門家（支援先企業の社内担当者、提携税理士法人の提携税理士）が持つ知識や実務経験を、AIが文章やPDFから「使える知見」として1件ずつ抽出し、社内データベース（SharePoint）に自動で保存するシステムです。SEO記事を書くときは、Claude（AIチャットサービス）がこのデータベースを参照することで、専門家の視点に沿った質の高い記事を生成できます。投稿はMicrosoft Formsのフォーム1本から行い、受け取った情報は自動で整理・保存されるため、専門家は書式を意識せず知見を共有できます。",
-        "background": "AIが書いたと判定されにくい自然で質の高いSEO記事を作るために、専門家ならではの視点や実務感を蓄積・活用する仕組みが必要でした。当初はPowerPoint資料を直接AI処理する案でしたが、文字化けや変換エラーの懸念から「事前にPDF化してから投稿する」方式に変更。その後、ClaudeとCodex（OpenAIのAI）による3回のレビューで15項目の改善を反映しました。さらに実装着手時に、当初計画の一部機能が有料プランを必要とすることが発覚したため、すべて無料ツールの組み合わせで実現できる構成に全面改訂。運用コストは月額0円で、既存の契約ツール（Microsoft 365）内で完結するようになりました。",
-        "tools": [
-          "Dify（AIワークフロー構築ツール）",
-          "Make（ノーコード自動化ツール）",
-          "Microsoft Forms（アンケートフォーム）",
-          "SharePoint（社内データ保管ツール）",
-          "Power Automate（Microsoftの業務自動化ツール）",
-          "Claude Projects（AIチャットの知識参照機能）",
-          "GPT-4o（OpenAIのAI）",
-          "GPT-4o PDF OCRプラグイン（画像PDFの文字読取）"
-        ],
-        "impact": {
-          "before": "専門家の知見が口頭やPowerPoint資料に散在し、SEO記事執筆時に再利用できない状態。AIが書いた記事は均質で差別化できない課題があった。",
-          "after": "専門家の知見が1件ずつ整理された状態で社内データベースに蓄積。SEO記事執筆時にClaude（AIチャット）が確認済みで有効な知見だけを参照するため、専門家らしい視点で記事を生成できるようになった。運用コストは月額0円で、既存の契約ツール内で完結。",
-          "savedTime": "SEO記事1本あたりの専門家ヒアリング時間を削減し、記事品質を向上"
-        }
       }
     },
     {

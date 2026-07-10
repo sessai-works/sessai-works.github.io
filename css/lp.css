@@ -25,6 +25,20 @@
   margin-bottom: 12px;
 }
 
+/* Japanese gloss appended after the English section label (e.g. PROBLEM｜課題).
+   English keeps its decorative uppercase tone; the JP part is plain and readable. */
+.lp-section-label .label-ja {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.lp-section-label .label-ja::before {
+  content: "｜";
+  margin: 0 0.35em;
+  opacity: 0.45;
+  font-weight: 400;
+}
+
 .lp-section-title {
   font-family: var(--font-body);
   font-size: clamp(1.5rem, 3vw, 2.2rem);

@@ -16,8 +16,11 @@
       if (typeof DASHBOARD_DATA !== 'undefined') {
         var s = DASHBOARD_DATA.summary;
         updateStat('stat-reduction', s.maxReduction, '%');
-        updateStat('stat-projects', s.totalProjects, '+');
-        updateStat('stat-categories', s.categories, 'areas');
+        // totalProjects is now the exact published count (derived in regen), so
+        // show "件" — NOT "+", which would falsely imply "more than N".
+        updateStat('stat-projects', s.totalProjects, '件');
+        // categories takes no unit (the old 'areas' injected a bogus "6areas").
+        updateStat('stat-categories', s.categories, '');
       }
     };
     script.onerror = function () {

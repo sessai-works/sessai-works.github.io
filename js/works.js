@@ -19,6 +19,18 @@
     return (project && project.category) || 'other';
   }
 
+  // Japanese labels for the category badge. MUST match the filter-button text
+  // in works.html (that pairing is a leak/UX checklist item — keep in sync).
+  var CATEGORY_LABELS = {
+    document: 'ドキュメント生成',
+    notification: '通知・連携',
+    report: 'レポート・分析',
+    knowledge: 'ナレッジ・相談',
+    matching: 'マッチング',
+    management: '業務管理',
+    other: 'その他'
+  };
+
   function getDisplayName(name) {
     return name || '';
   }
@@ -34,7 +46,7 @@
   // ============================================================
   function fetchData() {
     var grid = document.getElementById('works-grid');
-    grid.innerHTML = '<div class="works-loading">Loading projects...</div>';
+    grid.innerHTML = '<div class="works-loading">読み込み中…</div>';
 
     var script = document.createElement('script');
     script.src = 'js/works-data.js';
@@ -45,7 +57,7 @@
       }
     };
     script.onerror = function () {
-      grid.innerHTML = '<div class="works-loading">Could not load project data.</div>';
+      grid.innerHTML = '<div class="works-loading">データを読み込めませんでした。ページを再読み込みしてください。</div>';
     };
     document.head.appendChild(script);
   }
@@ -79,20 +91,28 @@
         }
       }
 
-      // Saved time
-      var savedHtml = '';
+      // Category badge (Japanese)
+      var catLabel = CATEGORY_LABELS[category] || CATEGORY_LABELS.other;
+
+      // Effect line = measured saved time. When a project has no measured time
+      // (e.g. tools where the value is qualitative), fall back to a short
+      // description so the card never looks empty.
+      var effectHtml;
       if (p.detail && p.detail.impact && p.detail.impact.savedTime) {
-        savedHtml = sanitizeText(p.detail.impact.savedTime);
+        effectHtml = '<div class="work-card-effect">⏱ ' + sanitizeText(p.detail.impact.savedTime) + '</div>';
+      } else {
+        effectHtml = '<div class="work-card-lead">' + sanitizeText(p.description || '') + '</div>';
       }
 
       html += '<div class="work-card" data-index="' + i + '" onclick="openProjectModal(' + i + ')">' +
         '<div class="work-card-header">' +
-          '<div class="work-card-name">' + getDisplayName(p.name) + '</div>' +
+          '<span class="work-card-badge work-card-badge-cat">🏷 ' + catLabel + '</span>' +
         '</div>' +
-        '<div class="work-card-desc">' + sanitizeText(p.description) + '</div>' +
+        '<div class="work-card-name">' + getDisplayName(p.name) + '</div>' +
+        effectHtml +
         (toolsHtml ? '<div class="work-card-tools">' + toolsHtml + '</div>' : '') +
         '<div class="work-card-footer">' +
-          '<span class="work-card-saved">' + savedHtml + '</span>' +
+          '<span class="work-card-more">詳しく見る</span>' +
           '<span class="work-card-arrow">&rarr;</span>' +
         '</div>' +
       '</div>';
@@ -135,10 +155,16 @@
 
     var body = '';
 
+    // Lead: the one-line description, shown first so the reader gets the gist
+    // before the detailed sections (it was moved off the card).
+    if (p.description) {
+      body += '<div class="modal-lead">' + sanitizeText(p.description) + '</div>';
+    }
+
     // Overview
     if (d.overview) {
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">Overview</div>' +
+        '<div class="modal-section-label">概要</div>' +
         '<div class="modal-section-text">' + sanitizeText(d.overview) + '</div>' +
         '</div>';
     }
@@ -146,7 +172,7 @@
     // Background
     if (d.background) {
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">Background</div>' +
+        '<div class="modal-section-label">導入前の課題</div>' +
         '<div class="modal-section-text">' + sanitizeText(d.background) + '</div>' +
         '</div>';
     }
@@ -158,26 +184,26 @@
         toolsHtml += '<span class="modal-tool-tag">' + d.tools[t] + '</span>';
       }
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">Tech Stack</div>' +
+        '<div class="modal-section-label">使った道具</div>' +
         '<div class="modal-tools">' + toolsHtml + '</div>' +
         '</div>';
     }
 
-    // Impact (Before/After)
+    // Impact (導入前 / 導入後)
     if (d.impact) {
       var impactHtml = '<div class="modal-impact">';
       impactHtml += '<div class="modal-impact-row">' +
-        '<span class="modal-impact-label before">Before</span>' +
+        '<span class="modal-impact-label before">導入前</span>' +
         '<span class="modal-impact-text">' + sanitizeText(d.impact.before) + '</span></div>';
       impactHtml += '<div class="modal-impact-row">' +
-        '<span class="modal-impact-label after">After</span>' +
+        '<span class="modal-impact-label after">導入後</span>' +
         '<span class="modal-impact-text">' + sanitizeText(d.impact.after) + '</span></div>';
       if (d.impact.savedTime) {
         impactHtml += '<div class="modal-impact-saved">' + sanitizeText(d.impact.savedTime) + '</div>';
       }
       impactHtml += '</div>';
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">Impact</div>' +
+        '<div class="modal-section-label">導入効果</div>' +
         impactHtml + '</div>';
     }
 

@@ -77,28 +77,28 @@
         「SessAI」は、互いに学び合い磨き高めるという意味を持つ「切磋琢磨」の「切磋（せっさ）」と「AI」を掛け合わせた造語です。お客様と一緒に考え、試し、改善を重ねながら、AIを業務に根づかせていく。そんなパートナーでありたいという想いを込めました。
       </p>
       <p class="about-intro">
-        日々の業務の中にある「時間がかかっている作業」を見つけ出し、最適なツールを組み合わせて仕組み化します。業務マニュアルの自動生成、チャット通知の自動化、商談データの分析レポート自動作成など、現在15件以上のプロジェクトを、企画から運用まで一貫して手がけています。
+        日々の業務の中にある「時間がかかっている作業」を見つけ出し、最適なツールを組み合わせて仕組み化します。業務マニュアルの自動生成、チャット通知の自動化、商談データの分析レポート自動作成など、現在<span id="about-project-count">15件以上</span>のプロジェクトを、企画から運用まで一貫して手がけています。
       </p>
     </div>
   </section>
 
   <!-- What I Do -->
   <section class="about-section">
-    <h2 class="about-section-title wipe-reveal">What I Do</h3>
+    <h2 class="about-section-title wipe-reveal">What I Do</h2>
     <div class="about-values stagger-children">
       <div class="about-value">
         <div class="about-value-number">01</div>
-        <h3 class="about-value-title">業務ヒアリング</h4>
+        <h3 class="about-value-title">業務ヒアリング</h3>
         <p class="about-value-desc">「何に時間がかかっているか」を丁寧にヒアリングし、自動化・AI化の余地を見極めます。</p>
       </div>
       <div class="about-value">
         <div class="about-value-number">02</div>
-        <h3 class="about-value-title">仕組みの設計・構築</h4>
+        <h3 class="about-value-title">仕組みの設計・構築</h3>
         <p class="about-value-desc">AI、ノーコードツール、Pythonなど最適な技術を組み合わせて、実際に動く仕組みを構築します。</p>
       </div>
       <div class="about-value">
         <div class="about-value-number">03</div>
-        <h3 class="about-value-title">運用・改善</h4>
+        <h3 class="about-value-title">運用・改善</h3>
         <p class="about-value-desc">導入後も実際の業務で使いながらフィードバックを反映し、定着するまで伴走します。</p>
       </div>
     </div>
@@ -106,7 +106,7 @@
 
   <!-- Approach -->
   <section class="about-section">
-    <h2 class="about-section-title wipe-reveal">Approach</h3>
+    <h2 class="about-section-title wipe-reveal">Approach</h2>
     <div class="about-approach stagger-children">
       <div class="about-approach-item">
         <p class="about-approach-text"><strong>小さく作って、素早く試す。</strong>まず最小限の仕組みで効果を検証し、確認できた段階で本格的に展開します。初期コストを抑えながら、確実に成果を出す進め方です。</p>
@@ -142,6 +142,22 @@
 </footer>
 
 <script>
+// Auto-fill the project count from the same anonymized snapshot the Works page
+// uses, so this sentence never goes stale. Fail-safe: if the data can't load,
+// the HTML keeps its "15件以上" fallback (an "or more" phrase never lies).
+(function() {
+  var el = document.getElementById('about-project-count');
+  if (!el) return;
+  var s = document.createElement('script');
+  s.src = 'js/works-data.js';
+  s.onload = function() {
+    if (typeof DASHBOARD_DATA !== 'undefined' && DASHBOARD_DATA.summary &&
+        typeof DASHBOARD_DATA.summary.totalProjects === 'number') {
+      el.textContent = DASHBOARD_DATA.summary.totalProjects + '件';
+    }
+  };
+  document.head.appendChild(s);
+})();
 (function() {
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('nav-mobile');

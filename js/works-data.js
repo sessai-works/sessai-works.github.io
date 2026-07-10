@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 16,
-    "totalProjects": 25,
+    "totalProjects": 22,
     "categories": 6,
     "maxReduction": 96
   },

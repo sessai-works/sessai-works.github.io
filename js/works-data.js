@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 16,
-    "totalProjects": 22,
+    "totalProjects": 23,
     "categories": 6,
     "maxReduction": 96
   },
@@ -141,6 +141,22 @@ var DASHBOARD_DATA = {
           "after": "AIが対話で必要情報を漏れなく収集・構造化（数分）",
           "savedTime": "ヒアリング・要件整理の工数を大幅削減"
         }
+      }
+    },
+    {
+      "name": "議事録自動作成ツール",
+      "nameEn": "Auto Meeting Minutes Generator",
+      "category": "document",
+      "status": "building",
+      "description": "会議の文字起こしから、要点・決定事項・次のアクションを整理した議事録を自動で生成するAIツール",
+      "detail": {
+        "overview": "会議の文字起こしデータから、要点・決定事項・アクションアイテムを整理した議事録を自動生成するツール。現在カスタムGPTで原型を制作済み。",
+        "background": "会議後の議事録作成に30分〜1時間かかるケースがあり、作成の負担や品質のばらつきが課題だった。",
+        "tools": [
+          "カスタムGPT（ChatGPTの業務特化版）",
+          "→ Dify（AIワークフロー構築ツール） / Make（ノーコード自動化ツール）（移行検討中）"
+        ],
+        "impact": null
       }
     },
     {

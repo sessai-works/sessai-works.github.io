@@ -3,7 +3,7 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 16,
+    "toolsInProduction": 17,
     "totalProjects": 23,
     "categories": 6,
     "maxReduction": 96
@@ -292,7 +292,7 @@ var DASHBOARD_DATA = {
       "name": "パーソナルタスク統合管理ボード",
       "nameEn": "Personal Task Integrated Board",
       "category": "management",
-      "status": "building",
+      "status": "live",
       "description": "全プロジェクトの残タスクを1画面で可視化し、タスク単位で推定工数・実績時間・Outlook予定連携まで行う個人用の補助ツール",
       "detail": {
         "overview": "プロジェクト単位のステータス管理を補完し、タスク単位の残/完了/推定工数/実績時間を可視化する個人用ツール。全プロジェクトのPLAN.mdをパースしてタスクデータを生成し、ローカル環境で表示。詳細画面からフォーカスモードでタスク単位の実作業時間を自動計測→localStorageに蓄積→セッション終了時にClaude CodeがPLAN.mdへ反映。実績データが蓄積されるとAIの工数推定精度が向上するフィードバックループを形成し、AIプロジェクトスケジューラーをタスク粒度にアップデートしてOutlook予定自動生成の精度も向上させる。",

@@ -3,7 +3,7 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 17,
+    "toolsInProduction": 18,
     "totalProjects": 23,
     "categories": 6,
     "maxReduction": 96
@@ -404,7 +404,7 @@ var DASHBOARD_DATA = {
       "name": "Outlook特定差出人＋件名キーワード → Teams 通知（絞り込み版）",
       "nameEn": "Outlook Sender + Subject-Keyword Filter → Teams Notification",
       "category": "notification",
-      "status": "testing",
+      "status": "live",
       "description": "特定の差出人から届いたメールのうち、件名に指定キーワードを含むものだけをTeams個人チャットへ自動通知（Power Automate標準コネクタのみ・プレミアム不要）",
       "detail": {
         "overview": "既存の「特定差出人通知システム」の進化版。特定の差出人から届いたメールの中から、さらに件名に特定のキーワードを含むメールだけに絞り込んで本人のTeams個人チャットへ即時通知する。差出人の指定に加え、件名キーワードの「どちらかを含む（OR）」判定を追加した点が特徴。",

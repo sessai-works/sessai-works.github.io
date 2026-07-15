@@ -3,7 +3,7 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 18,
+    "toolsInProduction": 19,
     "totalProjects": 23,
     "categories": 6,
     "maxReduction": 96
@@ -147,7 +147,7 @@ var DASHBOARD_DATA = {
       "name": "議事録自動作成ツール",
       "nameEn": "Auto Meeting Minutes Generator",
       "category": "document",
-      "status": "testing",
+      "status": "live",
       "description": "会議の文字起こしから、要点・決定事項・次のアクションを整理した議事録を自動で生成するAIツール",
       "detail": {
         "overview": "会議の文字起こしデータから、要点・決定事項・アクションアイテムを整理した議事録を自動生成するツール。現在カスタムGPTで原型を制作済み。",

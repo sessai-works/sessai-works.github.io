@@ -1,0 +1,5 @@
+# auto-push.ps1 writes its run log and last-push stamp here. The log lines embed
+# the absolute repo path (i.e. the real name in the Windows user directory), so
+# they must never reach this PUBLIC repo. Added 2026-07-17 when SessAI was put
+# under auto-push alongside the private repos.
+logs/

@@ -148,9 +148,9 @@ var DASHBOARD_DATA = {
       "nameEn": "Auto Meeting Minutes Generator",
       "category": "document",
       "status": "live",
-      "description": "会議の文字起こしから、要点・決定事項・次のアクションを整理した議事録を自動で生成するAIツール",
+      "description": "会議の文字起こしから、要点・決定事項・次のアクションを整理した議事録を自動で生成するAIツール。支援先企業用と提携税理士法人用の2つの受付窓口があります",
       "detail": {
-        "overview": "会議の文字起こし(Word)から、クライアント向けと社内向けの二層議事録を自動生成し、SharePoint保存・Teams通知まで一気通貫で行うツール。2026年7月に本番稼働を開始。",
+        "overview": "会議の文字起こし(Word)から、クライアント向けと社内向けの二層議事録を自動生成し、SharePoint保存・Teams通知まで一気通貫で行うツール。2026年7月に本番稼働を開始。2026年7月31日から提携税理士法人でも使えるようになりました（会社ごとに受付フォームが分かれており、議事録内の会社名と保存先フォルダが自動で切り替わります）。支援先企業用フォーム: https://forms.cloud.microsoft/r/wRT7JC8vKD ／ 提携税理士法人用フォーム: https://forms.cloud.microsoft/r/DGV2mCV2bK",
         "background": "会議後の議事録作成に30分〜1時間かかるケースがあり、作成の負担や品質のばらつきが課題だった。",
         "tools": [
           "Microsoft Forms（受付フォーム）",

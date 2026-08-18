@@ -5,7 +5,7 @@ var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 19,
     "totalProjects": 25,
-    "categories": 7,
+    "categories": 6,
     "maxReduction": 96
   },
   "projects": [
@@ -543,7 +543,7 @@ var DASHBOARD_DATA = {
     {
       "name": "仕訳自動化ツール",
       "nameEn": "Journal Entry Automation",
-      "category": "other",
+      "category": "document",
       "status": "building",
       "description": "記帳代行先からもらうExcelの現金出納帳を、会計ソフトに取り込めるCSVへ自動変換する。判断が要る行だけ人が確認する形にして、月次の入力作業を減らす",
       "detail": {

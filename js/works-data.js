@@ -544,7 +544,7 @@ var DASHBOARD_DATA = {
       "name": "仕訳自動化ツール",
       "nameEn": "Journal Entry Automation",
       "category": "document",
-      "status": "building",
+      "status": "testing",
       "description": "記帳代行先からもらうExcelの現金出納帳を、会計ソフトに取り込めるCSVへ自動変換する。判断が要る行だけ人が確認する形にして、月次の入力作業を減らす",
       "detail": {
         "overview": "記帳代行を請け負っている1社をテストケースに、月次の仕訳入力を自動化できるかを検証するプロジェクト。先方から届くExcelの現金出納帳を読み取り、会計ソフト（マネーフォワード）にそのまま取り込めるCSVを作る。会計ソフトへの自動登録は行わず、取り込みと最終確認は人が行う。成立すれば他の記帳代行先へ横展開する。",

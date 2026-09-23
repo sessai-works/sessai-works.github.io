@@ -3,8 +3,8 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 20,
-    "totalProjects": 29,
+    "toolsInProduction": 22,
+    "totalProjects": 31,
     "categories": 6,
     "maxReduction": 96
   },
@@ -144,13 +144,13 @@ var DASHBOARD_DATA = {
       }
     },
     {
-      "name": "議事録自動作成ツール",
-      "nameEn": "Auto Meeting Minutes Generator",
+      "name": "議事録作成メーカー（支援先企業 Backofficeチーム用）",
+      "nameEn": "Meeting Minutes Maker (支援先企業 Back-office Team)",
       "category": "document",
       "status": "live",
-      "description": "会議の文字起こしから、要点・決定事項・次のアクションを整理した議事録を自動で生成するAIツール。支援先企業用と提携税理士法人用の2つの受付窓口があります",
+      "description": "会議の文字起こし(Word)を送ると、クライアント向けと社内向けの二層議事録を自動で作り、SharePointに保存してTeamsで知らせるツール。支援先企業のBackofficeチーム用の受付窓口です",
       "detail": {
-        "overview": "会議の文字起こし(Word)から、クライアント向けと社内向けの二層議事録を自動生成し、SharePoint保存・Teams通知まで一気通貫で行うツール。2026年7月に本番稼働を開始。2026年7月31日から提携税理士法人でも使えるようになりました（会社ごとに受付フォームが分かれており、議事録内の会社名と保存先フォルダが自動で切り替わります）。支援先企業用フォーム: https://forms.cloud.microsoft/r/wRT7JC8vKD ／ 提携税理士法人用フォーム: https://forms.cloud.microsoft/r/DGV2mCV2bK",
+        "overview": "会議の文字起こし(Word)から、クライアント向けと社内向けの二層議事録を自動生成し、SharePoint保存・Teams通知まで一気通貫で行うツール。2026年7月に本番稼働を開始。受付フォームは窓口ごとに分かれていますが、裏側のしくみ（AI・保存・通知）は3窓口で共用しています。このカードは支援先企業 Backofficeチーム用の窓口です。",
         "background": "会議後の議事録作成に30分〜1時間かかるケースがあり、作成の負担や品質のばらつきが課題だった。",
         "tools": [
           "Microsoft Forms（受付フォーム）",
@@ -163,6 +163,52 @@ var DASHBOARD_DATA = {
           "before": "会議後の議事録作成に1件あたり30分〜1時間かかり、作成者の負担や品質のばらつきが課題",
           "after": "文字起こし(Word)を送るだけで、クライアント向け＋社内向けの二層議事録を自動生成→SharePoint保存→Teams通知まで一気通貫（送信から受け取りまで約6〜7分）",
           "savedTime": "1件30分〜1時間の議事録作成 → 送信するだけ（受け取りまで約6〜7分）"
+        }
+      }
+    },
+    {
+      "name": "議事録作成メーカー（提携税理士法人用）",
+      "nameEn": "Meeting Minutes Maker (the company Tax Corporation)",
+      "category": "document",
+      "status": "live",
+      "description": "会議の文字起こし(Word)を送ると、クライアント向けと社内向けの二層議事録を自動で作り、SharePointに保存してTeamsで知らせるツール。提携税理士法人用の受付窓口です",
+      "detail": {
+        "overview": "会議の文字起こし(Word)から、クライアント向けと社内向けの二層議事録を自動生成し、SharePoint保存・Teams通知まで一気通貫で行うツール。2026年7月31日に提携税理士法人用の窓口を開設。議事録内の会社名と保存先フォルダは自動で支援先企業用に切り替わります。受付フォームは窓口ごとに分かれていますが、裏側のしくみ（AI・保存・通知）は3窓口で共用しています。",
+        "background": "会議後の議事録作成に30分〜1時間かかるケースがあり、作成の負担や品質のばらつきが課題だった。",
+        "tools": [
+          "Microsoft Forms（受付フォーム）",
+          "Power Automate（受付の自動処理）",
+          "Make（Dify呼出・Word化・保存・通知の自動化）",
+          "Dify（議事録を生成するAIワークフロー）",
+          "SharePoint（保存）/ Teams（完了通知カード）"
+        ],
+        "impact": {
+          "before": "会議後の議事録作成に1件あたり30分〜1時間かかり、作成者の負担や品質のばらつきが課題",
+          "after": "文字起こし(Word)を送るだけで、クライアント向け＋社内向けの二層議事録を自動生成→SharePoint保存→Teams通知まで一気通貫（送信から受け取りまで約6〜7分）",
+          "savedTime": "1件30分〜1時間の議事録作成 → 送信するだけ（受け取りまで約6〜7分）"
+        }
+      }
+    },
+    {
+      "name": "議事録作成メーカー（支援先企業 営業部用）",
+      "nameEn": "Meeting Minutes Maker (支援先企業 Sales Team)",
+      "category": "document",
+      "status": "live",
+      "description": "商談の文字起こし(Word)を送ると、お礼メールの下書きと、次にやること・期限・担当をまとめた社内向けの商談メモを自動で作るツール。お礼メールは自分のOutlookの下書きに入り、送信は必ず本人が行います",
+      "detail": {
+        "overview": "商談の文字起こし(Word)から、先方に送るお礼メールの下書きと、社内向けの商談メモ（決まったこと・相手の懸念・次にやること・期限・担当）を自動で作るツール。2026年9月に営業部用の窓口として追加。受付リストで自分の行を選んで［お礼メールを下書きにする］を押すと、宛先が空・冒頭に「送る前の確認枠」付きの下書きが自分のOutlookに入ります。自社側の出席者をフォームで入力する作りで、表に無い人の所属はAIに推測させません。受付フォームは窓口ごとに分かれていますが、裏側のしくみ（AI・保存・通知）は3窓口で共用しています。",
+        "background": "商談後のメモ作成とお礼メールを毎回手で書いており、書き方や抜け漏れにばらつきがあった。社外に届く文面なので、社内向けの話（値引きの余地・競合の見立てなど）が混ざらないことが特に重要。",
+        "tools": [
+          "Microsoft Forms（受付フォーム）",
+          "Power Automate（受付の自動処理／お礼メールを下書きにするボタン）",
+          "Make（Dify呼出・Word化・保存・通知の自動化）",
+          "Dify（商談メモとお礼メールを生成するAIワークフロー）",
+          "SharePoint（保存）/ Outlook（お礼メールの下書き）/ Teams（完了通知）"
+        ],
+        "impact": {
+          "before": "商談後にメモとお礼メールを毎回手で作成し、内容や抜け漏れにばらつきがあった",
+          "after": "文字起こしを送るだけで、商談メモとお礼メールの下書きが届く。送る前に直して、宛先を入れて送るだけ",
+          "savedTime": "商談メモ＋お礼メールの作成 → 送信するだけ（下書きを確認して送る）"
         }
       }
     },

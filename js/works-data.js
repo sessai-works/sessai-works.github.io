@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 22,
-    "totalProjects": 31,
+    "totalProjects": 32,
     "categories": 6,
     "maxReduction": 96
   },
@@ -699,6 +699,28 @@ var DASHBOARD_DATA = {
           "before": "営業担当が会社名で検索し、公式サイトや求人・ニュースを1つずつ開いて調べる。同じ名前の会社を取り違えても気づきにくい",
           "after": "会社名と都道府県を入れて候補から1社を選ぶだけで、約1分でレポートが出る。取り違えた会社のレポートは出さず、出どころの分からない情報は△と表示する",
           "savedTime": "社内での利用開始後に計測（評価では1社あたり約1分でレポートが完成）"
+        }
+      }
+    },
+    {
+      "name": "Instagram分析ダッシュボード",
+      "nameEn": "Instagram Analytics Dashboard",
+      "category": "report",
+      "status": "testing",
+      "description": "自社Instagramの再生数・保存率・スキップ率などを毎日自動で集めてスプレッドシートにため、ダッシュボードで分析できるようにする",
+      "detail": {
+        "overview": "Makeで毎日Instagramの数字（投稿ごとの再生数・リーチ・保存・シェア・視聴時間、ストーリーズ、フォロワー数や層）を取り、Googleスプレッドシートに書き足していく。シートの数式が投稿ごと・日ごとの最新値をまとめ、ダッシュボードがそれを読んで表示する。取り込みが止まったり中身が空だったりした場合は警告が出る。",
+        "background": "数字はInstagramのアプリで都度見るしかなく、どの投稿がなぜ伸びたかを比べたり、過去の推移を振り返ったりする材料が残っていなかった。ストーリーズの数字は24時間で消え、フォロワー層も「今」の値しか見られない。",
+        "tools": [
+          "Make（毎日の自動取得）",
+          "Instagram Graph API（数字の取得）",
+          "Google スプレッドシート（蓄積）",
+          "HTML/JavaScript（ダッシュボード）"
+        ],
+        "impact": {
+          "before": "アプリで都度確認・記録なし",
+          "after": "毎日自動で蓄積し、期間・種類・条件で絞って分析できる",
+          "savedTime": "未測定"
         }
       }
     }

@@ -3,8 +3,8 @@
 // Contains NO employer / client / colleague identifiers by design.
 var DASHBOARD_DATA = {
   "summary": {
-    "toolsInProduction": 22,
-    "totalProjects": 32,
+    "toolsInProduction": 24,
+    "totalProjects": 31,
     "categories": 6,
     "maxReduction": 96
   },
@@ -57,7 +57,7 @@ var DASHBOARD_DATA = {
       "name": "チャット通知自動化システム",
       "nameEn": "Chat Notification Automation",
       "category": "notification",
-      "status": "testing",
+      "status": "live",
       "description": "Chatwork（ビジネスチャット）に届いたメッセージをTeamsへ自動通知し、未対応が続くと自動返信でフォローするシステム",
       "detail": {
         "overview": "クライアントからChatwork（ビジネスチャット）に届いたメッセージを、社内で普段使っているTeamsに自動で通知するシステムです。Teamsのメンション（@指名）連動、30分間未対応の場合の自動返信、営業時間内／時間外での文面の自動切替など、細かい気配りまで自動化しています。",
@@ -358,30 +358,6 @@ var DASHBOARD_DATA = {
           "GitHub Pages（静的サイト公開サービス）"
         ],
         "impact": null
-      }
-    },
-    {
-      "name": "決算書PDF Masker",
-      "nameEn": "Financial Statement PDF Masker",
-      "category": "document",
-      "status": "testing",
-      "description": "決算書PDFの機密情報（社名・人名・住所・電話番号・口座情報等）を自動検出し、AI投入用に安全化するローカル完結ツール",
-      "detail": {
-        "overview": "クライアントの決算報告書PDFに含まれる企業機密・個人情報（社名・人名・住所・電話番号・口座情報等）を自動検出し、Dify決算報告書Readerに安全に投入できるようマスキングするツール。GiNZA（日本語NER）＋Python re（正規表現）の2パスでマスク対象を検出し、Streamlit UIで候補のON/OFF切替・手動追加・確認が可能。同一文字列は同一トークン（例: 株式会社SORA→COMPANY_001）に決定論的に置換するため、AI分析結果を手元の元PDFと突き合わせて解釈できる。復元機能は設けず、元PDFを手元に保持する運用前提のシンプルな片方向マスキングに絞り込み。外部通信なし・LLM未使用の完全ローカル処理。",
-        "background": "決算報告書ReaderにPDFを投入する際、ISMS・セキュリティ観点から機密情報をそのままAIに渡すリスクが課題だった。同一文字列を同一トークンに決定論的に置換することで、AIが関係性を正しく分析でき、かつユーザーは手元の元PDFと突き合わせて結果を解釈できる。復元キーJSON・処理ログ・復元タブは元PDFが手元に残るため不要と判断し削除、シンプルな片方向マスキングに絞り込んだ。",
-        "tools": [
-          "Python 3.13",
-          "Streamlit",
-          "pymupdf（fitz）",
-          "GiNZA（日本語NER）",
-          "re（Python標準ライブラリ・正規表現）",
-          "Codex CLI（セキュリティレビュー）"
-        ],
-        "impact": {
-          "before": "決算書PDFの機密情報を手作業で確認・黒塗りするか、リスクを承知でそのままAIに投入",
-          "after": "ローカルツールで自動検出・マスキング → 安全にAI投入 → AI分析結果を手元の元PDFと照合",
-          "savedTime": "手作業マスキングの工数削減＋セキュリティリスク低減"
-        }
       }
     },
     {
@@ -706,7 +682,7 @@ var DASHBOARD_DATA = {
       "name": "Instagram分析ダッシュボード",
       "nameEn": "Instagram Analytics Dashboard",
       "category": "report",
-      "status": "testing",
+      "status": "live",
       "description": "自社Instagramの再生数・保存率・スキップ率などを毎日自動で集めてスプレッドシートにため、ダッシュボードで分析できるようにする",
       "detail": {
         "overview": "Makeで毎日Instagramの数字（投稿ごとの再生数・リーチ・保存・シェア・視聴時間、ストーリーズ、フォロワー数や層）を取り、Googleスプレッドシートに書き足していく。シートの数式が投稿ごと・日ごとの最新値をまとめ、ダッシュボードがそれを読んで表示する。取り込みが止まったり中身が空だったりした場合は警告が出る。",

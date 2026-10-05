@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 24,
-    "totalProjects": 32,
+    "totalProjects": 33,
     "categories": 7,
     "maxReduction": 96
   },
@@ -642,6 +642,26 @@ var DASHBOARD_DATA = {
           "Python",
           "Excel",
           "マネーフォワード クラウド会計"
+        ],
+        "impact": {
+          "before": "",
+          "after": "",
+          "savedTime": ""
+        }
+      }
+    },
+    {
+      "name": "領収書の仕訳自動化",
+      "nameEn": "Receipt-to-Journal Automation",
+      "category": "document",
+      "status": "building",
+      "description": "記帳代行しているお客様から紙で郵送される領収書を読み取り、会計ソフトに取り込める仕訳データと「人が確認する一覧」を作る。会計ソフトへの登録と最終確認は人が行う",
+      "detail": {
+        "overview": "記帳代行の担当者が、郵送で届く紙の領収書を1枚ずつ目で読んで会計ソフトに入力している作業を、確認と例外対応だけにする。科目を決める・計算を確かめる部分は、先に作った仕訳自動化の仕組みを使い回し、入口の「紙の読み取り」だけを新しく足す。読み取りは、会計ソフトに付いている機能から先に試し、足りなければAIでの読み取りと比べて決める",
+        "background": "記帳代行を担当するPMから「以前話していた自動仕訳を、このお客様の領収書で試してほしい」と依頼を受けて立ち上げた。先に作った仕訳自動化はExcelの帳簿が入口だったが、こちらは紙の領収書が入口になる。2社目でも設定の差し替えだけで動くかを確かめる意味もある",
+        "tools": [
+          "Python",
+          "マネーフォワード クラウド会計（想定）"
         ],
         "impact": {
           "before": "",

@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 24,
-    "totalProjects": 33,
+    "totalProjects": 34,
     "categories": 7,
     "maxReduction": 96
   },
@@ -96,6 +96,29 @@ var DASHBOARD_DATA = {
           "before": "手動でメール作成・送信・回答集計（数時間/回）",
           "after": "AIチャットに入力1回で全自動（数分）",
           "savedTime": "1回あたり数時間の作業を数分に短縮"
+        }
+      }
+    },
+    {
+      "name": "AI人材マッチングシステム",
+      "nameEn": "AI Talent Matching System",
+      "category": "matching",
+      "status": "testing",
+      "description": "案件要件に対して、AIが登録人材のスキル・経験・稼働余力を分析し、最適な候補者をスコアで提案するシステム",
+      "detail": {
+        "overview": "案件の要件に対して、AIが登録人材のスキル・経験・稼働余力を分析し、最適な候補者をスコアリングして提案するシステム。Mini版（全員配信）の発展形。",
+        "background": "Mini版では全登録人材に一斉送信だが、本来は案件要件に合った人材を効率的に絞り込みたい。AIによる候補者の自動マッチングが求められていた。",
+        "tools": [
+          "Dify（AIワークフロー構築ツール）",
+          "Make（ノーコード自動化ツール）",
+          "kintone（人材情報管理ツール）",
+          "SharePoint（社内データ保管ツール）",
+          "Azure AD（Microsoftの社員認証基盤）"
+        ],
+        "impact": {
+          "before": "担当者が経験と勘で候補者を選定（属人的・時間がかかる）",
+          "after": "AIがスコアリングした候補者リストを自動提示",
+          "savedTime": "候補者選定の時間短縮・属人化の解消"
         }
       }
     },

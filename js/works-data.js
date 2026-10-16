@@ -5,7 +5,7 @@ var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 24,
     "totalProjects": 34,
-    "categories": 7,
+    "categories": 6,
     "maxReduction": 96
   },
   "projects": [
@@ -655,7 +655,7 @@ var DASHBOARD_DATA = {
     {
       "name": "未収入金の消込・残高照合",
       "nameEn": "Receivables Clearing & Balance Reconciliation",
-      "category": "other",
+      "category": "report",
       "status": "building",
       "description": "記帳代行しているお客様の会計で、未収入金の残高を「何月の・どの店の・いくら」に分けて説明できる一覧を作る。12月から監査が入るため、残高を1行ずつ説明できる状態を目指す。会計ソフトの帳簿は変えずに外で一覧を作り、2か月は今のやり方と並べて答え合わせする",
       "detail": {

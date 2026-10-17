@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 24,
-    "totalProjects": 34,
+    "totalProjects": 35,
     "categories": 6,
     "maxReduction": 96
   },
@@ -685,6 +685,28 @@ var DASHBOARD_DATA = {
         "tools": [
           "Python",
           "マネーフォワード クラウド会計（想定）"
+        ],
+        "impact": {
+          "before": "",
+          "after": "",
+          "savedTime": ""
+        }
+      }
+    },
+    {
+      "name": "宿泊施設 メール→Excel転記",
+      "nameEn": "Payout Email to Excel Log",
+      "category": "document",
+      "status": "testing",
+      "description": "共有アドレスに届く宿泊予約サイトの送金通知メールから、受取日・宿泊日・宿泊番号・支払合計額を抜き出し、SharePointのExcelに新しいものが上になるよう自動で書き足す",
+      "detail": {
+        "overview": "経理が入金と突き合わせるため、送金通知メールを1通ずつ開いて書き写している作業をなくす。メール着信をきっかけにPower Automate（標準機能のみ）がExcelの中の小さなプログラムを呼び、4項目を決まった位置から抜き出して表の一番上に書く（AIは使わない）。抜き出せないメールは書かずに止め、担当者にTeamsで知らせる",
+        "background": "経理担当者から「特定の差出人・特定の受取アドレスに届くメールの内容をExcelに一覧化してほしい」と依頼を受けて立ち上げた",
+        "tools": [
+          "Power Automate",
+          "Office スクリプト",
+          "SharePoint",
+          "Microsoft Teams"
         ],
         "impact": {
           "before": "",

@@ -694,7 +694,7 @@ var DASHBOARD_DATA = {
       }
     },
     {
-      "name": "宿泊施設 メール→Excel転記",
+      "name": "予約メール→Excel転記",
       "nameEn": "Payout Email to Excel Log",
       "category": "document",
       "status": "live",

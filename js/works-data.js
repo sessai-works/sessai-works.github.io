@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 26,
-    "totalProjects": 35,
+    "totalProjects": 36,
     "categories": 6,
     "maxReduction": 96
   },
@@ -783,6 +783,26 @@ var DASHBOARD_DATA = {
           "before": "アプリで都度確認・記録なし",
           "after": "毎日自動で蓄積し、期間・種類・条件で絞って分析できる",
           "savedTime": "未測定"
+        }
+      }
+    },
+    {
+      "name": "給与仕訳の自動作成（スポーツクラブ）",
+      "nameEn": "Payroll Journal Automation (Sports Club Client)",
+      "category": "document",
+      "status": "building",
+      "description": "経理代行しているお客様の毎月の給与支給日の仕訳（会計ソフトに取り込む1本・約160行）を、給与ソフトの一覧表と報酬の計算表から機械で組み立てる。取り込みと最終確認は人が行う",
+      "detail": {
+        "overview": "担当者が2つの資料から数字を集め、前月の仕訳を書き換えて作っている作業（月約270分）を、資料を入れて結果を確かめるだけにする。共有PCの複数クライアント対応ページに、このお客様用の型を足す（AIは使わない）。各自のPCのブラウザから資料をアップロードし、結果をダウンロードする",
+        "background": "担当PMから、給与・業務委託報酬の仕訳計上を自動化したいと相談を受けて立ち上げた。給与確定の翌営業日に仕訳、その翌営業日に振込で、余裕が1日しかない",
+        "tools": [
+          "Python",
+          "マネーフォワード クラウド会計・給与"
+        ],
+        "impact": {
+          "before": "",
+          "after": "",
+          "savedTime": ""
         }
       }
     }

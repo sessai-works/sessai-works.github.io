@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 26,
-    "totalProjects": 36,
+    "totalProjects": 37,
     "categories": 6,
     "maxReduction": 96
   },
@@ -798,6 +798,26 @@ var DASHBOARD_DATA = {
         "tools": [
           "Python",
           "マネーフォワード クラウド会計・給与"
+        ],
+        "impact": {
+          "before": "",
+          "after": "",
+          "savedTime": ""
+        }
+      }
+    },
+    {
+      "name": "未払金表の自動化",
+      "nameEn": "Accrued Payables List Automation (Testing Services Client)",
+      "category": "document",
+      "status": "building",
+      "description": "記帳代行しているお客様から毎月届く未払金の一覧表（Excel）から、会計ソフトに取り込める仕訳を機械で作る。取り込みと最終確認は人が行う",
+      "detail": {
+        "overview": "作業担当者が一覧表を見ながら会計ソフトへ手入力している作業を、一覧表を入れて結果を確かめるだけにする。共有PCの複数クライアント対応ページに、このお客様用の型を足す（AIは使わない）",
+        "background": "担当PMから、未払金の計上を自動化したいと相談を受けて立ち上げた。手入力のため、二重計上や前月の数字の残りといったミスが過去に起きている",
+        "tools": [
+          "Python",
+          "マネーフォワード クラウド会計"
         ],
         "impact": {
           "before": "",

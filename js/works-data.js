@@ -4,7 +4,7 @@
 var DASHBOARD_DATA = {
   "summary": {
     "toolsInProduction": 26,
-    "totalProjects": 37,
+    "totalProjects": 38,
     "categories": 6,
     "maxReduction": 96
   },
@@ -818,6 +818,28 @@ var DASHBOARD_DATA = {
         "tools": [
           "Python",
           "マネーフォワード クラウド会計"
+        ],
+        "impact": {
+          "before": "",
+          "after": "",
+          "savedTime": ""
+        }
+      }
+    },
+    {
+      "name": "共有PC版 仕訳自動化ページ",
+      "nameEn": "Shared-PC Journal Automation Page",
+      "category": "document",
+      "status": "building",
+      "description": "会社の共有PCに置く1つのページ。担当者は自分のPCのブラウザで開き、担当のお客様を選んで資料を添付すると、会計ソフトに取り込めるCSVができる。複数のお客様の仕訳の自動化をここに集める",
+      "detail": {
+        "overview": "お客様ごとの「型」（領収書・給与・未払金表）を共通の土台に載せる。土台はログイン・お客様ごとの見える範囲・同時操作の鍵・止まったときの案内・毎日の控えを受け持つ",
+        "background": "仕訳の自動化を担当者個人のPCに置くと、担当が替わったときに引き継げない。ツールと成果物を会社の資産に残すため、共有PCに集めることにした",
+        "tools": [
+          "Python",
+          "FastAPI",
+          "マネーフォワード クラウド会計",
+          "Windows タスク スケジューラ"
         ],
         "impact": {
           "before": "",

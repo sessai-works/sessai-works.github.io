@@ -161,36 +161,27 @@
       body += '<div class="modal-lead">' + sanitizeText(p.description) + '</div>';
     }
 
-    // Overview
-    if (d.overview) {
-      body += '<div class="modal-section">' +
-        '<div class="modal-section-label">概要</div>' +
-        '<div class="modal-section-text">' + sanitizeText(d.overview) + '</div>' +
-        '</div>';
-    }
+    // Order follows the reader's question: "is this my problem?" -> "what does
+    // it do?" -> "what changed?" -> "could I use it elsewhere?" -> "built with".
 
-    // Background
+    // Background (the reader's own pain, first)
     if (d.background) {
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">導入前の課題</div>' +
+        '<div class="modal-section-label">こんなお悩みに</div>' +
         '<div class="modal-section-text">' + sanitizeText(d.background) + '</div>' +
         '</div>';
     }
 
-    // Tools
-    if (d.tools && d.tools.length > 0) {
-      var toolsHtml = '';
-      for (var t = 0; t < d.tools.length; t++) {
-        toolsHtml += '<span class="modal-tool-tag">' + d.tools[t] + '</span>';
-      }
+    // Overview
+    if (d.overview) {
       body += '<div class="modal-section">' +
-        '<div class="modal-section-label">使った道具</div>' +
-        '<div class="modal-tools">' + toolsHtml + '</div>' +
+        '<div class="modal-section-label">何をするか</div>' +
+        '<div class="modal-section-text">' + sanitizeText(d.overview) + '</div>' +
         '</div>';
     }
 
     // Impact (導入前 / 導入後)
-    if (d.impact) {
+    if (d.impact && (d.impact.before || d.impact.after)) {
       var impactHtml = '<div class="modal-impact">';
       impactHtml += '<div class="modal-impact-row">' +
         '<span class="modal-impact-label before">導入前</span>' +
@@ -205,6 +196,31 @@
       body += '<div class="modal-section">' +
         '<div class="modal-section-label">導入効果</div>' +
         impactHtml + '</div>';
+    }
+
+    // Use cases: lets the reader map this onto their own company.
+    if (d.usecases && d.usecases.length > 0) {
+      var ucHtml = '';
+      for (var u = 0; u < d.usecases.length; u++) {
+        ucHtml += '<li>' + sanitizeText(d.usecases[u]) + '</li>';
+      }
+      body += '<div class="modal-section">' +
+        '<div class="modal-section-label">同じ仕組みで、こんな業務にも</div>' +
+        '<ul class="modal-usecases">' + ucHtml + '</ul>' +
+        '<div class="modal-usecases-note">業種や社内の運用に合わせて作り変えられます。お気軽にご相談ください。</div>' +
+        '</div>';
+    }
+
+    // Tools
+    if (d.tools && d.tools.length > 0) {
+      var toolsHtml = '';
+      for (var t = 0; t < d.tools.length; t++) {
+        toolsHtml += '<span class="modal-tool-tag">' + d.tools[t] + '</span>';
+      }
+      body += '<div class="modal-section">' +
+        '<div class="modal-section-label">使った道具</div>' +
+        '<div class="modal-tools">' + toolsHtml + '</div>' +
+        '</div>';
     }
 
     document.getElementById('modal-body').innerHTML = body;
